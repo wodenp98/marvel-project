@@ -1,0 +1,21 @@
+{
+    "champions": [{
+    "name": "Aegon",
+    "classe": "Virtuose",
+    "etoiles": 6,
+    "rang": 1,
+    "cs": 0,
+    "owned": true
+}, {
+    "name": "Aegon",
+    "classe": "Virtuose",
+    "etoiles": 5,
+    "rang": 5,
+    "cs": 200,
+    "owned": true
+}
+
+
+
+
+] }

@@ -15,7 +15,7 @@ html {
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  background-color: rgb(3, 7, 38, 0.8);
+  background-color: rgba(33, 33, 33, 1.1);
 }
 .title {
   color: white;
@@ -27,14 +27,21 @@ html {
   margin-right: 20px;
 }
 
-.line {
-  border-top: 1px solid white;
-  width: 565px;
-}
-
 main {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center; 
-    background-color: rgb(85, 85, 110);
+    background-color: rgba(33, 33, 33, 0.9);
+}
+
+#filter-system {
+  margin-top: 10px;
+  width: 1200px;
+  display: flex;
+}
+
+.stars {
+  width: 20px;
+  height: 20px;
 }

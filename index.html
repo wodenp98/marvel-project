@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Marvel Board</title>
-</head>
-<body>
-    <header>
-        <h1>Marvel Board</h1>
-        <a href="kabam-link"></a>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="title" aria-label="Nom du site">Marvel Board</h1>
+      <a href="https://kabam.com/games/marvel-contest-of-champions/">
+        <img
+          src="/assets/logoKabam.svg"
+          class="logoKabam"
+          alt="Logo de Kabam"
+        />
+      </a>
     </header>
     <main>
-        <div class="line"></div>
-        <div id="filter-system"></div>
-        <div class="line"></div>
+      <div class="line"></div>
+      <div id="filter-system"></div>
+      <div class="line"></div>
 
-        <div id="container">
-            <form class="search-bar"></form>
-            <section id="section-heroes"></section>
-        </div>
+      <div id="container">
+        <form class="search-bar"></form>
+        <section id="section-heroes"></section>
+      </div>
     </main>
     <footer></footer>
-    <script src="/src/index.js"></script>
-</body>
+  </body>
 </html>

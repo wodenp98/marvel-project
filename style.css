@@ -1,14 +1,40 @@
 html {
-    box-sizing: border-box;
-    font-size: 16pt;
+  box-sizing: border-box;
+  font-size: 16pt;
 }
-*, *::before, *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-    background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: rgb(3, 7, 38, 0.8);
+}
+.title {
+  color: white;
+  margin-left: 20px;
+  font-size: 30px;
 }
 
+.logoKabam {
+  margin-right: 20px;
+}
+
+.line {
+  border-top: 1px solid white;
+  width: 565px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: rgb(85, 85, 110);
+}

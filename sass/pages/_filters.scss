@@ -1,0 +1,66 @@
+#filter-system {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px;
+    width: 1200px;
+  }
+  
+  .stars {
+    width: 20px;
+    height: 20px;
+  }
+  
+  #stars-filter {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .disabled {
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+    overflow: hidden;
+    padding: 0px;
+    border: none;
+    box-sizing: border-box;
+  }
+  
+  .science-grey {
+    background: url("assets/class-grey/science-grey.svg")
+  }
+  
+  .skill-grey {
+    background: url("assets/class-grey/skill-grey.svg")
+  }
+  
+  .mutant-grey {
+    background: url("assets/class-grey/mutant-grey.svg")
+  }
+  
+  .tech-grey {
+    background: url("assets/class-grey/tech-grey.svg")
+  }
+  
+  .cosmic-grey {
+    background: url("assets/class-grey/cosmic-grey.svg")
+  }
+  
+  .mystic-grey {
+    background: url("assets/class-grey/mystic-grey.svg")
+  }
+  
+  .container-class-filter {
+    padding: 1px;
+    background: rgb(221, 221, 221);
+    margin-bottom: 5px;
+  }
+  
+  .icon-class {
+    margin-left: 2px;
+  }
+  
+  .rank-button {
+    width: 20px;
+    height: 20px;
+  }

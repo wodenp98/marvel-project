@@ -66,40 +66,53 @@ main {
 }
 
 .science-grey {
-  background: url("assets/class-grey/science-grey.svg");
+  background: url("/assets/class-grey/science-grey.svg");
 }
 
 .skill-grey {
-  background: url("assets/class-grey/skill-grey.svg");
+  background: url("/assets/class-grey/skill-grey.svg");
 }
 
 .mutant-grey {
-  background: url("assets/class-grey/mutant-grey.svg");
+  background: url("/assets/class-grey/mutant-grey.svg");
 }
 
 .tech-grey {
-  background: url("assets/class-grey/tech-grey.svg");
+  background: url("/assets/class-grey/tech-grey.svg");
 }
 
 .cosmic-grey {
-  background: url("assets/class-grey/cosmic-grey.svg");
+  background: url("/assets/class-grey/cosmic-grey.svg");
 }
 
 .mystic-grey {
-  background: url("assets/class-grey/mystic-grey.svg");
+  background: url("/assets/class-grey/mystic-grey.svg");
 }
 
 .container-class-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
   padding: 1px;
-  background: rgb(221, 221, 221);
   margin-bottom: 5px;
 }
 
-.icon-class {
-  margin-left: 2px;
+.container-class-filter > * {
+  margin: 5px 10px;
 }
 
 .rank-button {
   width: 20px;
   height: 20px;
+}
+
+.container-button {
+  display: flex;
+  background: rgb(221, 221, 221);
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(136, 136, 136);
+  background: rgb(221, 221, 221);
 }/*# sourceMappingURL=main.css.map */

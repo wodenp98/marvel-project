@@ -6,10 +6,17 @@
     width: 1200px;
     border-bottom: 1px solid rgb(85, 85, 85);
   }
-  
+
+.stars-button {
+  margin-bottom: 10px;
+  background: rgb(221, 221, 221);
+  border: 1px solid rgb(136, 136, 136);
+}
+
   .stars {
     width: 20px;
     height: 20px;
+    margin: 3px 2.5px 3px 2.5px;
   }
   
   #stars-filter {
@@ -62,15 +69,25 @@
 .container-class-filter > * {
   margin: 5px 10px;
 }
+
+.container-rank-filter > * {
+  margin: 5px 7px;
+}
   
+.container-rank-filter {
+  margin-bottom: 5px;
+}
   .rank-button {
-    width: 20px;
-    height: 20px;
+    background: rgb(221, 221, 221);
+    border: 1px solid rgb(136, 136, 136);
+    width: 40px;
+    height: 40px;
+    font-size: 1.1em;
+    color: rgba(33, 33, 33, 0.9);
   }
 
 .container-button {
   display: flex;
-  background: rgb(221, 221, 221);
   width: 40px;
   height: 40px;
   align-items: center;

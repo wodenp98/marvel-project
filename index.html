@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/sass/main.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/1a22d99172.js" crossorigin="anonymous"></script> 
+    <script src="https://kit.fontawesome.com/a31756020a.js" crossorigin="anonymous"></script>
     <title>Marvel Board</title>
   </head>
   <body>
@@ -47,15 +46,15 @@
           </div>
         </div>
         <div id="stars-filter">
-          <button>
+          <button class="stars-button">
+            <img class="stars" src="/assets/stars.png">
             <img class="stars" src="/assets/stars.png">
             <img class="stars" src="/assets/stars.png">
             <img class="stars" src="/assets/stars.png">
             <img class="stars" src="/assets/stars.png">
             <img class="stars" src="/assets/stars.png">
           </button>
-          <button>
-            <img class="stars" src="/assets/stars.png">
+          <button class="stars-button">
             <img class="stars" src="/assets/stars.png">
             <img class="stars" src="/assets/stars.png">
             <img class="stars" src="/assets/stars.png">
@@ -76,65 +75,26 @@
         </div>
         <div id="immunity-filter">
           <select name="immunity" id="immunity-select">
-            <option value="">Immunité</option>
+            <option selected>Immunité</option>
           </select>
         </div>
         <div id="cs-filter">
-          <button>Comp.spé</button>
+          <select name="comp-spe" id="cs-select">
+            <option selected>Comp.spé</option>
+          </select>
         </div>
       </div>
 
       <div id="container">
         <form class="search-bar"></form>
         <section id="section-heroes">
-          <a class="link-heroes">
-            <div class="box-heroes">
-              <div class="placement-heroes">
-                <div class="background-heroes"></div>
-                <img src="/assets/border 6.png" class="border-heroes">
-                <div class="image-heroes" style="background-image: url('/assets/champ/doom/mini.png');"></div>
-              </div>
-            </div>
-          </a>
-          <a class="link-heroes">
-            <div class="box-heroes">
-              <div class="placement-heroes">
-                <div class="background-heroes"></div>
-                <img src="/assets/border 6.png" class="border-heroes">
-                <div class="image-heroes" style="background-image: url('/assets/champ/doom/mini.png');"></div>
-              </div>
-            </div>
-          </a>
-          <a class="link-heroes">
-            <div class="box-heroes">
-              <div class="placement-heroes">
-                <div class="background-heroes"></div>
-                <img src="/assets/border 6.png" class="border-heroes">
-                <div class="image-heroes" style="background-image: url('/assets/champ/doom/mini.png');"></div>
-              </div>
-            </div>
-          </a>
-          <a class="link-heroes">
-            <div class="box-heroes">
-              <div class="placement-heroes">
-                <div class="background-heroes"></div>
-                <img src="/assets/border 6.png" class="border-heroes">
-                <div class="image-heroes" style="background-image: url('/assets/champ/doom/mini.png');"></div>
-              </div>
-            </div>
-          </a>
-          <a class="link-heroes">
-            <div class="box-heroes">
-              <div class="placement-heroes">
-                <div class="background-heroes"></div>
-                <img src="/assets/border 6.png" class="border-heroes">
-                <div class="image-heroes" style="background-image: url('/assets/champ/doom/mini.png');"></div>
-              </div>
-            </div>
-          </a>
         </section>
       </div>
     </main>
     <footer></footer>
+    <script src="/src/index.js"></script>
+    <script src="/src/containers/immunityFactories.js"></script>
+    <script src="/src/containers/csFactories.js"></script>
+    <script src="/src/containers/herosFactories.js"></script>
   </body>
 </html>

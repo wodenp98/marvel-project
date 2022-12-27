@@ -2,31 +2,31 @@
   "champions": [
     {
       "name": "Docteur Doom",
-      "class": "Mystique",
+      "classHero": "Mystique",
       "stars": 6,
       "rank": 4,
-      "cs": 100,
+      "cs": 120,
       "owned": true,
       "immunity": ["décharge", "Brise armure"],
-      "indice": 21140,
+      "indice": 21430,
       "imageSmall": "assets/champ/doom/mini.png",
       "imageBig": "assets/champ/doom/big.png"
     },
     {
       "name": "Kitty Pryde",
-      "class": "Mutant",
+      "classHero": "Mutant",
       "stars": 6,
       "rank": 4,
-      "cs": 80,
+      "cs": 100,
       "owned": true,
       "immunity": "incinération",
-      "indice": 20220,
+      "indice": 20550,
       "imageSmall": "assets/champ/kittypryde/mini.png",
       "imageBig": "assets/champ/kittypryde/big.png"
     },
     {
       "name": "Void",
-      "class": "Science",
+      "classHero": "Science",
       "stars": 6,
       "rank": 4,
       "cs": 180,
@@ -38,7 +38,7 @@
     },
     {
       "name": "Silver Surfer",
-      "class": "Cosmique",
+      "classHero": "Cosmique",
       "stars": 6,
       "rank": 3,
       "cs": 200,
@@ -50,31 +50,29 @@
     },
     {
       "name": "Nick Fury",
-      "class": "Virtuose",
+      "classHero": "Virtuose",
       "stars": 6,
       "rank": 4,
       "cs": 40,
       "owned": true,
-      "immunity": "",
       "indice": 19210,
       "imageSmall": "assets/champ/nickfury/mini.png",
       "imageBig": "assets/champ/nickfury/big.png"
     },
     {
       "name": "Hercule",
-      "class": "Cosmique",
+      "classHero": "Cosmique",
       "stars": 6,
       "rank": 4,
       "cs": 20,
       "owned": true,
-      "immunity": "",
       "indice": 18470,
       "imageSmall": "assets/champ/hercule/mini.png",
       "imageBig": "assets/champ/hercule/big.png"
     },
     {
       "name": "Warlock",
-      "class": "Tech",
+      "classHero": "Tech",
       "stars": 6,
       "rank": 4,
       "cs": 60,
@@ -86,31 +84,29 @@
     },
     {
       "name": "Namor",
-      "class": "Mutant",
+      "classHero": "Mutant",
       "stars": 6,
       "rank": 3,
       "cs": 160,
       "owned": true,
-      "immunity": "",
       "indice": 18320,
       "imageSmall": "assets/champ/namor/mini.png",
       "imageBig": "assets/champ/namor/big.png"
     },
     {
       "name": "Spider-man (costume furtif)",
-      "class": "Virtuose",
+      "classHero": "Virtuose",
       "stars": 6,
       "rank": 3,
       "cs": 100,
       "owned": true,
-      "immunity": "",
       "indice": 18000,
       "imageSmall": "assets/champ/spidermanfurtif/mini.png",
       "imageBig": "assets/champ/spidermanfurtif/big.png"
     },
     {
       "name": "Ghost Rider Cosmique",
-      "class": "Cosmique",
+      "classHero": "Cosmique",
       "stars": 6,
       "rank": 3,
       "cs": 80,
@@ -122,31 +118,29 @@
     },
     {
       "name": "Valkyrie",
-      "class": "Virtuose",
+      "classHero": "Virtuose",
       "stars": 6,
-      "rank": 3,
+      "rank": 4,
       "cs": 200,
       "owned": true,
-      "immunity": "",
-      "indice": 17080,
+      "indice": 19910,
       "imageSmall": "assets/champ/valkyrie/mini.png",
       "imageBig": "assets/champ/valkyrie/big.png"
     },
     {
       "name": "Hit-monkey",
-      "class": "Virtuose",
+      "classHero": "Virtuose",
       "stars": 6,
       "rank": 3,
       "cs": 60,
       "owned": true,
-      "immunity": "",
       "indice": 17032,
       "imageSmall": "assets/champ/hit-monkey/mini.png",
       "imageBig": "assets/champ/hit-monkey/big.png"
     },
     {
       "name": "Sunspot",
-      "class": "Mutant",
+      "classHero": "Mutant",
       "stars": 6,
       "rank": 3,
       "cs": 40,
@@ -158,7 +152,7 @@
     },
     {
       "name": "Diablo (De Ablo)",
-      "class": "Mystique",
+      "classHero": "Mystique",
       "stars": 6,
       "rank": 3,
       "cs": 60,
@@ -170,31 +164,29 @@
     },
     {
       "name": "Ebony Maw",
-      "class": "Mystique",
+      "classHero": "Mystique",
       "stars": 6,
       "rank": 3,
       "cs": 20,
       "owned": true,
-      "immunity": "",
       "indice": 16330,
       "imageSmall": "assets/champ/ebonymaw/mini.png",
       "imageBig": "assets/champ/ebonymaw/big.png"
     },
     {
       "name": "Guardian",
-      "class": "Tech",
+      "classHero": "Tech",
       "stars": 6,
       "rank": 3,
       "cs": 40,
       "owned": true,
-      "immunity": "",
       "indice": 16280,
       "imageSmall": "assets/champ/guardian/mini.png",
       "imageBig": "assets/champ/guardian/big.png"
     },
     {
       "name": "Guillotine 2099",
-      "class": "Tech",
+      "classHero": "Tech",
       "stars": 6,
       "rank": 3,
       "cs": 20,
@@ -206,7 +198,7 @@
     },
     {
       "name": "Wiccan",
-      "class": "Mystique",
+      "classHero": "Mystique",
       "stars": 6,
       "rank": 3,
       "cs": 20,
@@ -218,7 +210,7 @@
     },
     {
       "name": "Corvus Glaive",
-      "class": "Cosmique",
+      "classHero": "Cosmique",
       "stars": 6,
       "rank": 3,
       "cs": 20,
@@ -230,19 +222,18 @@
     },
     {
       "name": "Caïd",
-      "class": "Virtuose",
+      "classHero": "Virtuose",
       "stars": 6,
       "rank": 3,
       "cs": 40,
       "owned": true,
-      "immunity": "",
       "indice": 15720,
       "imageSmall": "assets/champ/caid/mini.png",
       "imageBig": "assets/champ/caid/big.png"
     },
     {
       "name": "Apocalypse",
-      "class": "Mutant",
+      "classHero": "Mutant",
       "stars": 6,
       "rank": 3,
       "cs": 20,
@@ -254,19 +245,18 @@
     },
     {
       "name": "Titania",
-      "class": "Science",
+      "classHero": "Science",
       "stars": 6,
       "rank": 3,
       "cs": 20,
       "owned": true,
-      "immunity": "",
       "indice": 15402,
       "imageSmall": "assets/champ/titania/mini.png",
       "imageBig": "assets/champ/titania/big.png"
     },
     {
       "name": "Black Widow (Claire Voyant)",
-      "class": "Mystique",
+      "classHero": "Mystique",
       "stars": 6,
       "rank": 3,
       "cs": 0,
@@ -278,7 +268,7 @@
     },
     {
       "name": "Gorr",
-      "class": "Cosmique",
+      "classHero": "Cosmique",
       "stars": 6,
       "rank": 3,
       "cs": 0,
@@ -290,53 +280,50 @@
     },
     {
       "name": "Elsa Bloodstone",
-      "class": "Virtuose",
+      "classHero": "Virtuose",
       "stars": 6,
       "rank": 2,
       "cs": 40,
       "owned": true,
-      "immunity": "",
       "indice": 14331,
       "imageSmall": "assets/champ/elsabloodstone/mini.png",
       "imageBig": "assets/champ/elsabloodstone/big.png"
     },
     {
       "name": "Archangel",
-      "class": "Mutant",
+      "classHero": "Mutant",
       "stars": 6,
       "rank": 3,
       "cs": 0,
       "owned": true,
-      "immunity": "",
       "indice": 14260,
       "imageSmall": "assets/champ/archangel/mini.png",
       "imageBig": "assets/champ/archangel/big.png"
     },
     {
       "name": "Ghost",
-      "class": "Tech",
+      "classHero": "Tech",
       "stars": 6,
       "rank": 3,
       "cs": 0,
       "owned": true,
-      "immunity": "",
       "indice": 14160,
       "imageSmall": "assets/champ/ghost/mini.png",
       "imageBig": "assets/champ/ghost/big.png"
     },{
         "name": "Black Widow (Origine Meutrière)",
-        "class": "Virtuose",
+        "classHero": "Virtuose",
         "stars": 6,
         "rank": 2,
         "cs": 40,
         "owned": true,
-        "immunity": "",
+
         "indice": 14140,
         "imageSmall": "assets/champ/blackwidowwhite/mini.png",
         "imageBig": "assets/champ/blackwidowwhite/big.png"
       },{
         "name": "Hulk (Ragnarok)",
-        "class": "Science",
+        "classHero": "Science",
         "stars": 6,
         "rank": 2,
         "cs": 80,
@@ -347,18 +334,18 @@
         "imageBig": "assets/champ/hulkragnarok/big.png"
       }, {
         "name": "Proxima Minuit",
-        "class": "Cosmique",
+        "classHero": "Cosmique",
         "stars": 6,
         "rank": 2,
         "cs": 60,
         "owned": true,
-        "immunity": "",
+
         "indice": 14080,
         "imageSmall": "assets/champ/proxima/mini.png",
         "imageBig": "assets/champ/proxima/big.png"
       },{
         "name": "Miss Hulk",
-        "class": "Science",
+        "classHero": "Science",
         "stars": 6,
         "rank": 2,
         "cs": 0,
@@ -369,40 +356,40 @@
         "imageBig": "assets/champ/misshulk/big.png"
       },{
         "name": "Tigra",
-        "class": "Mystique",
+        "classHero": "Mystique",
         "stars": 6,
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": "",
+
         "indice": 13530,
         "imageSmall": "assets/champ/tigra/mini.png",
         "imageBig": "assets/champ/tigra/big.png"
       },{
         "name": "Symbiote Suprême",
-        "class": "Mystique",
+        "classHero": "Mystique",
         "stars": 6,
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": "",
+
         "indice": 13419,
         "imageSmall": "assets/champ/symbiotesupreme/mini.png",
         "imageBig": "assets/champ/symbiotesupreme/big.png"
       }, {
         "name": "Thor (Ragnarok)",
-        "class": "Virtuose",
+        "classHero": "Virtuose",
         "stars": 6,
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": "",
+
         "indice": 13210,
         "imageSmall": "assets/champ/thorragnarok/mini.png",
         "imageBig": "assets/champ/thorragnarok/big.png"
       }, {
         "name": "Korg",
-        "class": "Virtuose",
+        "classHero": "Virtuose",
         "stars": 6,
         "rank": 2,
         "cs": 20,
@@ -413,51 +400,51 @@
         "imageBig": "assets/champ/korg/big.png"
       }, {
         "name": "Mojo",
-        "class": "Mystique",
+        "classHero": "Mystique",
         "stars": 6,
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": "",
+
         "indice": 12939,
         "imageSmall": "assets/champ/mojo/mini.png",
         "imageBig": "assets/champ/mojo/big.png"
       }, {
         "name": "Malicia",
-        "class": "Mutant",
+        "classHero": "Mutant",
         "stars": 6,
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": "",
+
         "indice": 12870,
         "imageSmall": "assets/champ/malicia/mini.png",
         "imageBig": "assets/champ/malicia/big.png"
       }, {
         "name": "Angela",
-        "class": "Cosmique",
+        "classHero": "Cosmique",
         "stars": 6,
         "rank": 2,
         "cs": 0,
         "owned": true,
-        "immunity": "",
+
         "indice": 12826,
         "imageSmall": "assets/champ/angela/mini.png",
         "imageBig": "assets/champ/angela/big.png"
       }, {
         "name": "Sasquatch",
-        "class": "Mystique",
+        "classHero": "Mystique",
         "stars": 6,
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": "",
+
         "indice": 12810,
         "imageSmall": "assets/champ/sasquatch/mini.png",
         "imageBig": "assets/champ/sasquatch/big.png"
       }, {
         "name": "Captain Marvel (MCU)",
-        "class": "Cosmique",
+        "classHero": "Cosmique",
         "stars": 6,
         "rank": 2,
         "cs": 0,
@@ -468,7 +455,7 @@
         "imageBig": "assets/champ/captainmarvelmcu/big.png"
       }, {
         "name": "Colossus",
-        "class": "Mutant",
+        "classHero": "Mutant",
         "stars": 6,
         "rank": 2,
         "cs": 20,
@@ -479,7 +466,7 @@
         "imageBig": "assets/champ/colossus/big.png"
       }, {
         "name": "Magneto",
-        "class": "Mutant",
+        "classHero": "Mutant",
         "stars": 6,
         "rank": 2,
         "cs": 20,
@@ -490,7 +477,7 @@
         "imageBig": "assets/champ/magnetor/big.png"
       }, {
         "name": "Hulk Rouge",
-        "class": "Science",
+        "classHero": "Science",
         "stars": 6,
         "rank": 2,
         "cs": 20,
@@ -501,18 +488,18 @@
         "imageBig": "assets/champ/redhulk/big.png"
       }, {
         "name": "Knull",
-        "class": "Cosmique",
+        "classHero": "Cosmique",
         "stars": 6,
         "rank": 2,
         "cs": 0,
         "owned": true,
-        "immunity": "",
+
         "indice": 12280,
         "imageSmall": "assets/champ/knull/mini.png",
         "imageBig": "assets/champ/knull/big.png"
       }, {
         "name": "La Chose",
-        "class": "Science",
+        "classHero": "Science",
         "stars": 6,
         "rank": 2,
         "cs": 0,
@@ -523,18 +510,18 @@
         "imageBig": "assets/champ/chose/big.png"
       }, {
         "name": "The Hood",
-        "class": "Mystique",
+        "classHero": "Mystique",
         "stars": 6,
         "rank": 2,
         "cs": 0,
         "owned": true,
-        "immunity": "",
+
         "indice": 11960,
         "imageSmall": "assets/champ/hood/mini.png",
         "imageBig": "assets/champ/hood/big.png"
       },{
         "name": "Ultron",
-        "class": "Tech",
+        "classHero": "Tech",
         "stars": 6,
         "rank": 2,
         "cs": 0,
@@ -544,8 +531,8 @@
         "imageSmall": "assets/champ/ultronclassic/mini.png",
         "imageBig": "assets/champ/ultronclassic/big.png"
       },{
-        "name": "Vision (L'ère d'Ultron",
-        "class": "Tech",
+        "name": "Vision (L'ère d'Ultron)",
+        "classHero": "Tech",
         "stars": 6,
         "rank": 2,
         "cs": 20,
@@ -556,7 +543,7 @@
         "imageBig": "assets/champ/visionclassic/big.png"
       },{
         "name": "Hyperion",
-        "class": "Cosmique",
+        "classHero": "Cosmique",
         "stars": 6,
         "rank": 2,
         "cs": 0,
@@ -565,6 +552,28 @@
         "indice": 11250,
         "imageSmall": "assets/champ/hyperion/mini.png",
         "imageBig": "assets/champ/hyperion/big.png"
+      }, {
+        "name": "Wolverine (x-23)",
+        "classHero": "Mutant",
+        "stars": 6,
+        "rank": 2,
+        "cs": 20,
+        "owned": true,
+
+        "indice": 12832,
+        "imageSmall": "assets/champ/x23/mini.png",
+        "imageBig": "assets/champ/x23/big.png"
+      }, {
+        "name": "Hulking",
+        "classHero": "Cosmique",
+        "stars": 6,
+        "rank": 2,
+        "cs": 0,
+        "owned": true,
+        "immunity": ["décharge", "poison"],
+        "indice": 12540,
+        "imageSmall": "assets/champ/hulking/mini.png",
+        "imageBig": "assets/champ/hulking/big.png"
       }
   ]
 }

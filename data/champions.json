@@ -7,7 +7,7 @@
       "rank": 4,
       "cs": 120,
       "owned": true,
-      "immunity": ["décharge", "Brise armure"],
+      "immunity": ["decharge", "brise armure"],
       "indice": 21430,
       "imageSmall": "assets/champ/doom/mini.png",
       "imageBig": "assets/champ/doom/big.png"
@@ -19,7 +19,7 @@
       "rank": 4,
       "cs": 100,
       "owned": true,
-      "immunity": "incinération",
+      "immunity": "incineration",
       "indice": 20550,
       "imageSmall": "assets/champ/kittypryde/mini.png",
       "imageBig": "assets/champ/kittypryde/big.png"
@@ -31,7 +31,7 @@
       "rank": 4,
       "cs": 180,
       "owned": true,
-      "immunity": "incinération",
+      "immunity": "incineration",
       "indice": 19790,
       "imageSmall": "assets/champ/void/mini.png",
       "imageBig": "assets/champ/void/big.png"
@@ -43,7 +43,7 @@
       "rank": 3,
       "cs": 200,
       "owned": true,
-      "immunity": ["décharge", "incinération", "vague de froid"],
+      "immunity": ["decharge", "incineration", "vague de froid"],
       "indice": 19400,
       "imageSmall": "assets/champ/silversurfer/mini.png",
       "imageBig": "assets/champ/silversurfer/big.png"
@@ -111,7 +111,7 @@
       "rank": 3,
       "cs": 80,
       "owned": true,
-      "immunity": ["saignement", "incinération"],
+      "immunity": ["saignement", "incineration"],
       "indice": 17170,
       "imageSmall": "assets/champ/cgr/mini.png",
       "imageBig": "assets/champ/cgr/big.png"
@@ -145,7 +145,7 @@
       "rank": 3,
       "cs": 40,
       "owned": true,
-      "immunity": "incinération",
+      "immunity": "incineration",
       "indice": 16700,
       "imageSmall": "assets/champ/sunspot/mini.png",
       "imageBig": "assets/champ/sunspot/big.png"
@@ -203,7 +203,7 @@
       "rank": 3,
       "cs": 20,
       "owned": true,
-      "immunity": ["Controles inversés", "Brise armure"],
+      "immunity": ["controles inverses", "brise armure"],
       "indice": 16100,
       "imageSmall": "assets/champ/wiccan/mini.png",
       "imageBig": "assets/champ/wiccan/big.png"
@@ -215,7 +215,7 @@
       "rank": 3,
       "cs": 20,
       "owned": true,
-      "immunity": ["saignement", "décharge", "vague de froid"],
+      "immunity": ["saignement", "decharge", "vague de froid"],
       "indice": 16010,
       "imageSmall": "assets/champ/corvus/mini.png",
       "imageBig": "assets/champ/corvus/big.png"
@@ -238,7 +238,7 @@
       "rank": 3,
       "cs": 20,
       "owned": true,
-      "immunity": ["saignement", "incinération", "désorienter"],
+      "immunity": ["saignement", "incineration", "desorienter"],
       "indice": 15630,
       "imageSmall": "assets/champ/apocalypse/mini.png",
       "imageBig": "assets/champ/apocalypse/big.png"
@@ -261,7 +261,7 @@
       "rank": 3,
       "cs": 0,
       "owned": true,
-      "immunity": ["saignement", "incinération", "poison"],
+      "immunity": ["saignement", "incineration", "poison"],
       "indice": 15340,
       "imageSmall": "assets/champ/blackwidowcv/mini.png",
       "imageBig": "assets/champ/blackwidowcv/big.png"
@@ -273,7 +273,7 @@
       "rank": 3,
       "cs": 0,
       "owned": true,
-      "immunity": "Blocage soins",
+      "immunity": "blocage soins",
       "indice": 15158,
       "imageSmall": "assets/champ/gorr/mini.png",
       "imageBig": "assets/champ/gorr/big.png"
@@ -394,7 +394,7 @@
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": ["saignement", "décharge"],
+        "immunity": ["saignement", "decharge"],
         "indice": 13060,
         "imageSmall": "assets/champ/korg/mini.png",
         "imageBig": "assets/champ/korg/big.png"
@@ -460,7 +460,7 @@
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": ["saignement", "incinération", "vague de froid"],
+        "immunity": ["saignement", "incineration", "vague de froid"],
         "indice": 12509,
         "imageSmall": "assets/champ/colossus/mini.png",
         "imageBig": "assets/champ/colossus/big.png"
@@ -471,7 +471,7 @@
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": "controles inversés",
+        "immunity": "controles inverses",
         "indice": 12400,
         "imageSmall": "assets/champ/magnetor/mini.png",
         "imageBig": "assets/champ/magnetor/big.png"
@@ -482,7 +482,7 @@
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": ["poison", "incinération"],
+        "immunity": ["poison", "incineration"],
         "indice": 12380,
         "imageSmall": "assets/champ/redhulk/mini.png",
         "imageBig": "assets/champ/redhulk/big.png"
@@ -504,7 +504,7 @@
         "rank": 2,
         "cs": 0,
         "owned": true,
-        "immunity": ["saignement", "décharge", "Brise armure", "Purge" , "Chancellement"],
+        "immunity": ["saignement", "decharge", "brise armure", "purge" , "chancellement"],
         "indice": 12180,
         "imageSmall": "assets/champ/chose/mini.png",
         "imageBig": "assets/champ/chose/big.png"
@@ -570,7 +570,7 @@
         "rank": 2,
         "cs": 0,
         "owned": true,
-        "immunity": ["décharge", "poison"],
+        "immunity": ["decharge", "poison"],
         "indice": 12540,
         "imageSmall": "assets/champ/hulking/mini.png",
         "imageBig": "assets/champ/hulking/big.png"

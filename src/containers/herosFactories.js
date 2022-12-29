@@ -1,5 +1,6 @@
 function heroFactory(data)  {
     const { classHero, imageSmall, stars} = data
+    console.log(stars)
     let arrays = []
     arrays.push(classHero)
 

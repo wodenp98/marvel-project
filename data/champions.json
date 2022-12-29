@@ -1533,6 +1533,236 @@
         "indice": 5455,
         "imageSmall": "assets/champ/scarletwitch/mini.png",
         "imageBig": "assets/champ/scarletwitch/big.png"
+      }, {
+        "name": "Kitty Pryde",
+        "classHero": "Mutant",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "immunity": "incineration",
+        "indice": 14940,
+        "imageSmall": "assets/champ/kittypryde/mini.png",
+        "imageBig": "assets/champ/kittypryde/big.png"
+      }, {
+        "name": "Black Widow (Claire Voyant)",
+        "classHero": "Mystique",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "immunity": ["incineration", "saignement", "poison"],
+        "indice": 14740,
+        "imageSmall": "assets/champ/blackwidowcv/mini.png",
+        "imageBig": "assets/champ/blackwidowcv/big.png"
+      }, {
+        "name": "Professeur X",
+        "classHero": "Mutant",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "immunity": "controles inverses",
+        "indice": 14658,
+        "imageSmall": "assets/champ/profx/mini.png",
+        "imageBig": "assets/champ/profx/big.png"
+      }, {
+        "name": "Ghost Rider Cosmique",
+        "classHero": "Cosmique",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "immunity": ["incineration", "saignement"],
+        "indice": 14560,
+        "imageSmall": "assets/champ/cgr/mini.png",
+        "imageBig": "assets/champ/cgr/big.png"
+      }, {
+        "name": "Falcon",
+        "classHero": "Virtuose",
+        "stars": 5,
+        "rank": 5,
+        "cs": 180,
+        "owned": true,
+        "indice": 14470,
+        "imageSmall": "assets/champ/falcon/mini.png",
+        "imageBig": "assets/champ/falcon/big.png"
+      }, {
+        "name": "Sunspot",
+        "classHero": "Mutant",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "immunity": "incineration",
+        "indice": 14390,
+        "imageSmall": "assets/champ/sunspot/mini.png",
+        "imageBig": "assets/champ/sunspot/big.png"
+      }, {
+        "name": "Aegon",
+        "classHero": "Virtuose",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "indice": 14210,
+        "imageSmall": "assets/champ/aegon/mini.png",
+        "imageBig": "assets/champ/aegon/big.png"
+      }, {
+        "name": "La Torche Humaine",
+        "classHero": "Science",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "immunity": ["incineration", "vague de froid"],
+        "indice": 14130,
+        "imageSmall": "assets/champ/torche/mini.png",
+        "imageBig": "assets/champ/torche/big.png"
+      }, {
+        "name": "Longshot",
+        "classHero": "Mystique",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "indice": 14120,
+        "imageSmall": "assets/champ/longshot/mini.png",
+        "imageBig": "assets/champ/longshot/big.png"
+      }, {
+        "name": "Warlock",
+        "classHero": "Tech",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "immunity": ["saignement", "poison", "vague de froid"],
+        "indice": 13890,
+        "imageSmall": "assets/champ/warlock/mini.png",
+        "imageBig": "assets/champ/warlock/big.png"
+      }, {
+        "name": "Médusa",
+        "classHero": "Cosmique",
+        "stars": 5,
+        "rank": 5,
+        "cs": 180,
+        "owned": true,
+        "immunity": "poison",
+        "indice": 13840,
+        "imageSmall": "assets/champ/medusa/mini.png",
+        "imageBig": "assets/champ/medusa/big.png"
+      }, {
+        "name": "Nimrod",
+        "classHero": "Tech",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "immunity": ["saignement", "poison"],
+        "indice": 13830,
+        "imageSmall": "assets/champ/nimrod/mini.png",
+        "imageBig": "assets/champ/nimrod/big.png"
+      }, {
+        "name": "Captain America (Infinity War)",
+        "classHero": "Science",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "indice": 13830,
+        "imageSmall": "assets/champ/captainamericaavengers/mini.png",
+        "imageBig": "assets/champ/captainamericaavengers/big.png"
+      }, {
+        "name": "Mister Fantastic",
+        "classHero": "Science",
+        "stars": 5,
+        "rank": 5,
+        "cs": 120,
+        "owned": true,
+        "indice": 13680,
+        "imageSmall": "assets/champ/misterfantastic/mini.png",
+        "imageBig": "assets/champ/misterfantastic/big.png"
+      }, {
+        "name": "Domino",
+        "classHero": "Mutant",
+        "stars": 5,
+        "rank": 5,
+        "cs": 180,
+        "owned": true,
+        "indice": 13640,
+        "imageSmall": "assets/champ/domino/mini.png",
+        "imageBig": "assets/champ/domino/big.png"
+      }, {
+        "name": "Guêpe",
+        "classHero": "Science",
+        "stars": 5,
+        "rank": 5,
+        "cs": 100,
+        "owned": true,
+        "indice": 13580,
+        "imageSmall": "assets/champ/guepe/mini.png",
+        "imageBig": "assets/champ/guepe/big.png"
+      }, {
+        "name": "Spider-man (Améloriation stark)",
+        "classHero": "Tech",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "indice": 13560,
+        "imageSmall": "assets/champ/spidermanstark/mini.png",
+        "imageBig": "assets/champ/spidermanstark/big.png"
+      }, {
+        "name": "Quake",
+        "classHero": "Science",
+        "stars": 5,
+        "rank": 5,
+        "cs": 100,
+        "owned": true,
+        "indice": 13320,
+        "imageSmall": "assets/champ/quake/mini.png",
+        "imageBig": "assets/champ/quake/big.png"
+      }, {
+        "name": "Magik",
+        "classHero": "Mystique",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "indice": 13170,
+        "imageSmall": "assets/champ/magik/mini.png",
+        "imageBig": "assets/champ/magik/big.png"
+      }, {
+        "name": "Sentinelle",
+        "classHero": "Tech",
+        "stars": 5,
+        "rank": 5,
+        "cs": 140,
+        "owned": true,
+        "immunity": ["saignement", "poison"],
+        "indice": 12910,
+        "imageSmall": "assets/champ/sentinelle/mini.png",
+        "imageBig": "assets/champ/sentinelle/big.png"
+      }, {
+        "name": "Cable",
+        "classHero": "Mutant",
+        "stars": 5,
+        "rank": 5,
+        "cs": 120,
+        "owned": true,
+        "indice": 12880,
+        "imageSmall": "assets/champ/cable/mini.png",
+        "imageBig": "assets/champ/cable/big.png"
+      }, {
+        "name": "Star Lord",
+        "classHero": "Tech",
+        "stars": 5,
+        "rank": 5,
+        "cs": 200,
+        "owned": true,
+        "indice": 12200,
+        "imageSmall": "assets/champ/starlord/mini.png",
+        "imageBig": "assets/champ/starlord/big.png"
       }
   ]
 }

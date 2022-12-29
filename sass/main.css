@@ -29,6 +29,10 @@ html {
   margin-right: 20px;
 }
 
+.logoAunt {
+  width: 30px;
+}
+
 main {
   display: flex;
   align-items: center;
@@ -263,7 +267,7 @@ main {
 .box-heroes {
   position: relative;
   height: 82.5px;
-  width: 90px;
+  width: 100px;
   transform-origin: 0px 0px;
   transform: scale(0.5);
   -webkit-user-select: none;
@@ -297,6 +301,8 @@ main {
 img {
   vertical-align: middle;
   border-style: none;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .image-heroes {

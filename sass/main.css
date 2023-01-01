@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   box-sizing: border-box;
   font-size: 16pt;
@@ -131,16 +132,6 @@ main {
   flex-direction: column;
 }
 
-.icon-class {
-  width: 30px;
-  height: 30px;
-  margin: 0px;
-  overflow: hidden;
-  padding: 0px;
-  border: none;
-  box-sizing: border-box;
-}
-
 .container-class-filter {
   display: flex;
   flex-direction: row;
@@ -164,20 +155,20 @@ main {
 .rank-button {
   background: rgb(221, 221, 221);
   border: 1px solid rgb(136, 136, 136);
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   font-size: 1.1em;
   color: rgba(33, 33, 33, 0.9);
 }
 
 .container-button {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgb(136, 136, 136);
+  padding: 1px;
   background: rgb(221, 221, 221);
+}
+
+.border-button {
+  box-shadow: rgb(68, 68, 68) 3px 3px 4px -2px;
+  border: 1px solid rgb(136, 136, 136);
 }
 
 .immunity-icon {
@@ -194,6 +185,16 @@ main {
   width: 1200px;
   color: rgb(221, 221, 221);
   font-size: 28px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin: 0px;
+  overflow: hidden;
+  padding: 0px;
+  border: none;
+  box-sizing: border-box;
 }
 
 .disabled-science {
@@ -242,6 +243,50 @@ main {
 
 .actived-mystic {
   background: url("/assets/class/mystic.svg");
+}
+
+.disabled-bleed {
+  background: url("/assets/immunity-grey/saignement.png");
+}
+
+.disabled-poison {
+  background: url("/assets/immunity-grey/poison.png");
+}
+
+.disabled-incineration {
+  background: url("/assets/immunity-grey/incinération.png");
+}
+
+.disabled-decharge {
+  background: url("/assets/immunity-grey/décharge.png");
+}
+
+.disabled-bloc-soin {
+  background: url("/assets/immunity-grey/bloc-soin.png");
+}
+
+.disabled-brise-armure {
+  background: url("/assets/immunity-grey/brise-armure.png");
+}
+
+.disabled-chancellement {
+  background: url("/assets/immunity-grey/chancellement.png");
+}
+
+.disabled-controles {
+  background: url("/assets/immunity-grey/controles-inverses.png");
+}
+
+.disabled-desorienter {
+  background: url("/assets/immunity-grey/desorienter.png");
+}
+
+.disabled-ralentissement {
+  background: url("/assets/immunity-grey/ralentissement.png");
+}
+
+.disabled-coldsnap {
+  background: url("/assets/immunity-grey/vague-de-froid.png");
 }
 
 #section-heroes {

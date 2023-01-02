@@ -271,10 +271,10 @@
       "classHero": "Cosmique",
       "stars": 6,
       "rank": 3,
-      "cs": 0,
+      "cs": 20,
       "owned": true,
       "immunity": "blocage soins",
-      "indice": 15158,
+      "indice": 16327,
       "imageSmall": "assets/champ/gorr/mini.png",
       "imageBig": "assets/champ/gorr/big.png"
     },

@@ -1117,7 +1117,7 @@
         "cs": 20,
         "owned": true,
         "immunity": ["saignement", "poison"],
-        "indice": 63988,
+        "indice": 6398,
         "imageSmall": "assets/champ/sentinelle/mini.png",
         "imageBig": "assets/champ/sentinelle/big.png"
       }, {

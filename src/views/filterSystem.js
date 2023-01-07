@@ -1,25 +1,46 @@
 function handleClickFilter() {
   const buttonFilter = document.querySelectorAll(".container-button");
-  console.log(heros);
   let isClicked = false;
+  const containerClass = "container-button";
+  const backgroundClass = "background-button";
 
   buttonFilter.forEach((button) =>
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", () => {
       if (isClicked === false) {
-        console.log(button);
         isClicked = true;
-        const test = button.children[0];
+        let buttonChildren = button.children[0];
 
-        button.classList.remove("container-button");
-        test.classList.remove(`disabled-${button.title.toLowerCase()}`);
+        button.classList.remove(containerClass);
+        buttonChildren.classList.remove(
+          `disabled-${button.title.toLowerCase()}`
+        );
+
+        button.classList.add(backgroundClass);
+        buttonChildren.classList.add(`actived-${button.title.toLowerCase()}`);
+
+        sortByClass(button.title);
       } else {
         isClicked = false;
+        const buttonChildren = button.children[0];
 
-        const test = button.children[0];
+        button.classList.add(containerClass);
+        buttonChildren.classList.add(`disabled-${button.title.toLowerCase()}`);
 
-        button.classList.add("container-button");
-        test.classList.add(`disabled-${button.title.toLowerCase()}`);
+        button.classList.remove(backgroundClass);
+        buttonChildren.classList.remove(
+          `actived-${button.title.toLowerCase()}`
+        );
+        displayHeroes(heros);
+        sortHerosByIndice();
       }
     })
   );
+}
+
+function sortByClass(type) {
+  let filteredList = heros.filter(function (hero) {
+    return hero.classHero === `${type}`;
+  });
+
+  displayHeroes(filteredList);
 }

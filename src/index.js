@@ -32,7 +32,10 @@ async function init() {
   displayCs(heros);
   displayHeroes(heros);
   sortHerosByIndice();
-  handleClickFilter();
+  handleClickClassFilter();
+  handleClickStarsFilter();
+  handleClickRankFilter();
+  handleClickImmunityFilter();
 }
 
 init();

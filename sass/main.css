@@ -170,6 +170,11 @@ main {
   background: rgb(221, 221, 221);
 }
 
+.container-immunity {
+  padding: 1px;
+  background: rgb(221, 221, 221);
+}
+
 .background-button {
   padding: 1px;
   background: rgba(33, 33, 33, 0.9);
@@ -254,48 +259,114 @@ main {
   background: url("/assets/class/mystic.svg");
 }
 
-.disabled-bleed {
+.disabled-saignement {
   background: url("/assets/immunity-grey/saignement.png");
+  margin: 2px;
 }
 
 .disabled-poison {
   background: url("/assets/immunity-grey/poison.png");
+  margin: 2px;
 }
 
 .disabled-incineration {
   background: url("/assets/immunity-grey/incinération.png");
+  margin: 2px;
 }
 
 .disabled-decharge {
   background: url("/assets/immunity-grey/décharge.png");
+  margin: 2px;
 }
 
 .disabled-bloc-soin {
   background: url("/assets/immunity-grey/bloc-soin.png");
+  margin: 2px;
 }
 
 .disabled-brise-armure {
   background: url("/assets/immunity-grey/brise-armure.png");
+  margin: 2px;
 }
 
 .disabled-chancellement {
   background: url("/assets/immunity-grey/chancellement.png");
+  margin: 2px;
 }
 
-.disabled-controles {
+.disabled-controles-inversés {
   background: url("/assets/immunity-grey/controles-inverses.png");
+  margin: 2px;
 }
 
 .disabled-desorienter {
   background: url("/assets/immunity-grey/desorienter.png");
+  margin: 2px;
 }
 
 .disabled-ralentissement {
   background: url("/assets/immunity-grey/ralentissement.png");
+  margin: 2px;
 }
 
-.disabled-coldsnap {
+.disabled-vague-de-froid {
   background: url("/assets/immunity-grey/vague-de-froid.png");
+  margin: 2px;
+}
+
+.actived-saignement {
+  background: url("/assets/immunity/saignement.png");
+  margin: 2px;
+}
+
+.actived-poison {
+  background: url("/assets/immunity/poison.png");
+  margin: 2px;
+}
+
+.actived-incineration {
+  background: url("/assets/immunity/incinération.png");
+  margin: 2px;
+}
+
+.actived-decharge {
+  background: url("/assets/immunity/décharge.png");
+  margin: 2px;
+}
+
+.actived-bloc-soin {
+  background: url("/assets/immunity/bloc-soin.png");
+  margin: 2px;
+}
+
+.actived-brise-armure {
+  background: url("/assets/immunity/brise-armure.png");
+  margin: 2px;
+}
+
+.actived-chancellement {
+  background: url("/assets/immunity/chancellement.png");
+  margin: 2px;
+}
+
+.actived-controles-inversés {
+  background: url("/assets/immunity/controles-inverses.png");
+  margin: 2px;
+}
+
+.actived-desorienter {
+  background: url("/assets/immunity/desorienter.png");
+  margin: 2px;
+}
+
+.actived-ralentissement {
+  background: url("/assets/immunity/ralentissement.png");
+  margin: 2px;
+}
+
+.actived-vague-de-froid {
+  background: url("/assets/immunity/vague-de-froid.png");
+  margin: 2px;
 }
 
 #section-heroes {

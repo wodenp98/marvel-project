@@ -7,7 +7,7 @@
       "rank": 4,
       "cs": 120,
       "owned": true,
-      "immunity": ["decharge", "brise armure"],
+      "immunity": ["decharge", "brise-armure"],
       "indice": 21430,
       "imageSmall": "assets/champ/doom/mini.png",
       "imageBig": "assets/champ/doom/big.png"
@@ -19,7 +19,7 @@
       "rank": 4,
       "cs": 100,
       "owned": true,
-      "immunity": "incineration",
+      "immunity": ["incineration"],
       "indice": 20550,
       "imageSmall": "assets/champ/kittypryde/mini.png",
       "imageBig": "assets/champ/kittypryde/big.png"
@@ -31,7 +31,7 @@
       "rank": 4,
       "cs": 180,
       "owned": true,
-      "immunity": "incineration",
+      "immunity": ["incineration"],
       "indice": 19790,
       "imageSmall": "assets/champ/void/mini.png",
       "imageBig": "assets/champ/void/big.png"
@@ -43,7 +43,7 @@
       "rank": 3,
       "cs": 200,
       "owned": true,
-      "immunity": ["decharge", "incineration", "vague de froid"],
+      "immunity": ["decharge", "incineration", "vague-de-froid"],
       "indice": 19400,
       "imageSmall": "assets/champ/silversurfer/mini.png",
       "imageBig": "assets/champ/silversurfer/big.png"
@@ -64,9 +64,9 @@
       "classHero": "Cosmique",
       "stars": 6,
       "rank": 4,
-      "cs": 20,
+      "cs": 60,
       "owned": true,
-      "indice": 18470,
+      "indice": 19380,
       "imageSmall": "assets/champ/hercule/mini.png",
       "imageBig": "assets/champ/hercule/big.png"
     },
@@ -75,10 +75,10 @@
       "classHero": "Tech",
       "stars": 6,
       "rank": 4,
-      "cs": 60,
+      "cs": 100,
       "owned": true,
-      "immunity": ["saignement", "poison", "vague de froid"],
-      "indice": 18340,
+      "immunity": ["saignement", "poison", "vague-de-froid"],
+      "indice": 19030,
       "imageSmall": "assets/champ/warlock/mini.png",
       "imageBig": "assets/champ/warlock/big.png"
     },
@@ -121,9 +121,9 @@
       "classHero": "Virtuose",
       "stars": 6,
       "rank": 4,
-      "cs": 200,
+      "cs": 180,
       "owned": true,
-      "indice": 19910,
+      "indice": 20780,
       "imageSmall": "assets/champ/valkyrie/mini.png",
       "imageBig": "assets/champ/valkyrie/big.png"
     },
@@ -145,10 +145,20 @@
       "rank": 3,
       "cs": 40,
       "owned": true,
-      "immunity": "incineration",
+      "immunity": ["incineration"],
       "indice": 16700,
       "imageSmall": "assets/champ/sunspot/mini.png",
       "imageBig": "assets/champ/sunspot/big.png"
+    },{
+      "name": "Black Cat",
+      "classHero": "Virtuose",
+      "stars": 6,
+      "rank": 3,
+      "cs": 0,
+      "owned": true,
+      "indice": 14810,
+      "imageSmall": "assets/champ/blackcat/mini.png",
+      "imageBig": "assets/champ/blackcat/big.png"
     },
     {
       "name": "Diablo (De Ablo)",
@@ -157,7 +167,7 @@
       "rank": 3,
       "cs": 60,
       "owned": true,
-      "immunity": "poison",
+      "immunity": ["poison"],
       "indice": 16350,
       "imageSmall": "assets/champ/deablo/mini.png",
       "imageBig": "assets/champ/deablo/big.png"
@@ -200,11 +210,11 @@
       "name": "Wiccan",
       "classHero": "Mystique",
       "stars": 6,
-      "rank": 3,
-      "cs": 20,
+      "rank": 4,
+      "cs": 40,
       "owned": true,
-      "immunity": ["controles inverses", "brise armure"],
-      "indice": 16100,
+      "immunity": ["controles-inversés", "brise-armure"],
+      "indice": 18910,
       "imageSmall": "assets/champ/wiccan/mini.png",
       "imageBig": "assets/champ/wiccan/big.png"
     },
@@ -215,7 +225,7 @@
       "rank": 3,
       "cs": 20,
       "owned": true,
-      "immunity": ["saignement", "decharge", "vague de froid"],
+      "immunity": ["saignement", "decharge", "vague-de-froid"],
       "indice": 16010,
       "imageSmall": "assets/champ/corvus/mini.png",
       "imageBig": "assets/champ/corvus/big.png"
@@ -227,7 +237,7 @@
       "rank": 3,
       "cs": 40,
       "owned": true,
-      "indice": 15720,
+      "indice": 15926,
       "imageSmall": "assets/champ/caid/mini.png",
       "imageBig": "assets/champ/caid/big.png"
     },
@@ -248,9 +258,9 @@
       "classHero": "Science",
       "stars": 6,
       "rank": 3,
-      "cs": 20,
+      "cs": 40,
       "owned": true,
-      "indice": 15402,
+      "indice": 15828,
       "imageSmall": "assets/champ/titania/mini.png",
       "imageBig": "assets/champ/titania/big.png"
     },
@@ -259,10 +269,10 @@
       "classHero": "Mystique",
       "stars": 6,
       "rank": 3,
-      "cs": 0,
+      "cs": 20,
       "owned": true,
       "immunity": ["saignement", "incineration", "poison"],
-      "indice": 15340,
+      "indice": 16350,
       "imageSmall": "assets/champ/blackwidowcv/mini.png",
       "imageBig": "assets/champ/blackwidowcv/big.png"
     },
@@ -273,8 +283,8 @@
       "rank": 3,
       "cs": 20,
       "owned": true,
-      "immunity": "blocage soins",
-      "indice": 16327,
+      "immunity": ["bloc-soin"],
+      "indice": 16367,
       "imageSmall": "assets/champ/gorr/mini.png",
       "imageBig": "assets/champ/gorr/big.png"
     },
@@ -294,9 +304,9 @@
       "classHero": "Mutant",
       "stars": 6,
       "rank": 3,
-      "cs": 0,
+      "cs": 20,
       "owned": true,
-      "indice": 14260,
+      "indice": 15732,
       "imageSmall": "assets/champ/archangel/mini.png",
       "imageBig": "assets/champ/archangel/big.png"
     },
@@ -305,12 +315,24 @@
       "classHero": "Tech",
       "stars": 6,
       "rank": 3,
-      "cs": 0,
+      "cs": 20,
       "owned": true,
-      "indice": 14160,
+      "indice": 15090,
       "imageSmall": "assets/champ/ghost/mini.png",
       "imageBig": "assets/champ/ghost/big.png"
     },{
+      "name": "Rintrah",
+      "classHero": "Mystique",
+      "stars": 6,
+      "rank": 3,
+      "cs": 20,
+      "owned": true,
+      "indice": 15060,
+      "imageSmall": "assets/champ/rintrah/mini.png",
+      "imageBig": "assets/champ/rintrah/big.png"
+    },
+    
+    {
         "name": "Black Widow (Origine Meutrière)",
         "classHero": "Virtuose",
         "stars": 6,
@@ -328,7 +350,7 @@
         "rank": 2,
         "cs": 80,
         "owned": true,
-        "immunity": "poison",
+        "immunity": ["poison"],
         "indice": 14099,
         "imageSmall": "assets/champ/hulkragnarok/mini.png",
         "imageBig": "assets/champ/hulkragnarok/big.png"
@@ -347,10 +369,10 @@
         "name": "Miss Hulk",
         "classHero": "Science",
         "stars": 6,
-        "rank": 2,
+        "rank": 3,
         "cs": 0,
         "owned": true,
-        "immunity": "poison",
+        "immunity": ["poison"],
         "indice": 13619,
         "imageSmall": "assets/champ/misshulk/mini.png",
         "imageBig": "assets/champ/misshulk/big.png"
@@ -428,18 +450,18 @@
         "cs": 0,
         "owned": true,
 
-        "indice": 12826,
+        "indice": 12565,
         "imageSmall": "assets/champ/angela/mini.png",
         "imageBig": "assets/champ/angela/big.png"
       }, {
         "name": "Sasquatch",
         "classHero": "Mystique",
         "stars": 6,
-        "rank": 2,
+        "rank": 3,
         "cs": 20,
         "owned": true,
 
-        "indice": 12810,
+        "indice": 15220,
         "imageSmall": "assets/champ/sasquatch/mini.png",
         "imageBig": "assets/champ/sasquatch/big.png"
       }, {
@@ -449,7 +471,7 @@
         "rank": 2,
         "cs": 0,
         "owned": true,
-        "immunity": "poison",
+        "immunity": ["poison"],
         "indice": 12590,
         "imageSmall": "assets/champ/captainmarvelmcu/mini.png",
         "imageBig": "assets/champ/captainmarvelmcu/big.png"
@@ -460,7 +482,7 @@
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": ["saignement", "incineration", "vague de froid"],
+        "immunity": ["saignement", "incineration", "vague-de-froid"],
         "indice": 12509,
         "imageSmall": "assets/champ/colossus/mini.png",
         "imageBig": "assets/champ/colossus/big.png"
@@ -471,7 +493,7 @@
         "rank": 2,
         "cs": 20,
         "owned": true,
-        "immunity": "controles inverses",
+        "immunity": ["controles-inversés"],
         "indice": 12400,
         "imageSmall": "assets/champ/magnetor/mini.png",
         "imageBig": "assets/champ/magnetor/big.png"
@@ -483,29 +505,29 @@
         "cs": 20,
         "owned": true,
         "immunity": ["poison", "incineration"],
-        "indice": 12380,
+        "indice": 12635,
         "imageSmall": "assets/champ/redhulk/mini.png",
         "imageBig": "assets/champ/redhulk/big.png"
       }, {
         "name": "Knull",
         "classHero": "Cosmique",
         "stars": 6,
-        "rank": 2,
+        "rank": 3,
         "cs": 0,
         "owned": true,
 
-        "indice": 12280,
+        "indice": 14590,
         "imageSmall": "assets/champ/knull/mini.png",
         "imageBig": "assets/champ/knull/big.png"
       }, {
         "name": "La Chose",
         "classHero": "Science",
         "stars": 6,
-        "rank": 2,
+        "rank": 3,
         "cs": 0,
         "owned": true,
-        "immunity": ["saignement", "decharge", "brise armure", "purge" , "chancellement"],
-        "indice": 12180,
+        "immunity": ["saignement", "decharge", "brise-armure", "purge" , "chancellement"],
+        "indice": 14470,
         "imageSmall": "assets/champ/chose/mini.png",
         "imageBig": "assets/champ/chose/big.png"
       }, {
@@ -524,10 +546,10 @@
         "classHero": "Tech",
         "stars": 6,
         "rank": 2,
-        "cs": 0,
+        "cs": 20,
         "owned": true,
         "immunity": ["saignement", "poison", "ralentissement"],
-        "indice": 11867,
+        "indice": 12515,
         "imageSmall": "assets/champ/ultronclassic/mini.png",
         "imageBig": "assets/champ/ultronclassic/big.png"
       },{
@@ -548,7 +570,7 @@
         "rank": 2,
         "cs": 0,
         "owned": true,
-        "immunity": "poison",
+        "immunity": ["poison"],
         "indice": 11250,
         "imageSmall": "assets/champ/hyperion/mini.png",
         "imageBig": "assets/champ/hyperion/big.png"
@@ -560,18 +582,18 @@
         "cs": 20,
         "owned": true,
 
-        "indice": 12832,
+        "indice": 12400,
         "imageSmall": "assets/champ/x23/mini.png",
         "imageBig": "assets/champ/x23/big.png"
       }, {
         "name": "Hulking",
         "classHero": "Cosmique",
         "stars": 6,
-        "rank": 2,
+        "rank": 3,
         "cs": 0,
         "owned": true,
         "immunity": ["decharge", "poison"],
-        "indice": 12540,
+        "indice": 15256,
         "imageSmall": "assets/champ/hulking/mini.png",
         "imageBig": "assets/champ/hulking/big.png"
       }, {
@@ -591,7 +613,7 @@
         "rank": 1,
         "cs": 20,
         "owned": true,
-        "immunity":  "poison",
+        "immunity":  ["poison"],
         "indice": 9904,
         "imageSmall": "assets/champ/mysterio/mini.png",
         "imageBig": "assets/champ/mysterio/big.png"
@@ -599,11 +621,11 @@
         "name": "Mister Négative",
         "classHero": "Science",
         "stars": 6,
-        "rank": 1,
-        "cs": 20,
+        "rank": 2,
+        "cs": 40,
         "owned": true,
         "immunity":  ["chancellement","purge"],
-        "indice": 9863,
+        "indice": 13880,
         "imageSmall": "assets/champ/misternegative/mini.png",
         "imageBig": "assets/champ/misternegative/big.png"
       }, {
@@ -623,7 +645,7 @@
         "rank": 1,
         "cs": 20,
         "owned": true,
-        "indice": 9684,
+        "indice": 9702,
         "imageSmall": "assets/champ/gwenpool/mini.png",
         "imageBig": "assets/champ/gwenpool/big.png"
       }, {
@@ -662,9 +684,9 @@
         "classHero": "Science",
         "stars": 6,
         "rank": 1,
-        "cs": 20,
+        "cs": 40,
         "owned": true,
-        "indice": 9584,
+        "indice": 9835,
         "imageSmall": "assets/champ/yellowjack/mini.png",
         "imageBig": "assets/champ/yellowjack/big.png"
       }, {
@@ -707,14 +729,24 @@
         "indice": 8955,
         "imageSmall": "assets/champ/odin/mini.png",
         "imageBig": "assets/champ/odin/big.png"
+      },{
+        "name": "Heimdall",
+        "classHero": "Cosmique",
+        "stars": 6,
+        "rank":1,
+        "cs": 0,
+        "owned": true,
+        "indice": 8606,
+        "imageSmall": "assets/champ/heimdall/mini.png",
+        "imageBig": "assets/champ/heimdall/big.png"
       }, {
         "name": "Hulkbuster",
         "classHero": "Tech",
         "stars": 6,
-        "rank": 1,
+        "rank": 2,
         "cs": 20,
         "owned": true,
-        "indice": 8798,
+        "indice": 12120,
         "imageSmall": "assets/champ/hulkbuster/mini.png",
         "imageBig": "assets/champ/hulkbuster/big.png"
       }, {
@@ -774,7 +806,7 @@
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity":  ["saignement", "brise armure"],
+        "immunity":  ["saignement", "brise-armure"],
         "indice": 7224,
         "imageSmall": "assets/champ/homme-chose/mini.png",
         "imageBig": "assets/champ/homme-chose/big.png"
@@ -805,7 +837,7 @@
         "rank": 1,
         "cs": 20,
         "owned": true,
-        "immunity": "saignement",
+        "immunity": ["saignement"],
         "indice": 6979,
         "imageSmall": "assets/champ/morningstar/mini.png",
         "imageBig": "assets/champ/morningstar/big.png"
@@ -816,7 +848,7 @@
         "rank": 1,
         "cs": 20,
         "owned": true,
-        "immunity": "vague de froid",
+        "immunity": ["vague-de-froid"],
         "indice": 6932,
         "imageSmall": "assets/champ/sabretooth/mini.png",
         "imageBig": "assets/champ/sabretooth/big.png"
@@ -959,7 +991,7 @@
         "rank": 1,
         "cs": 20,
         "owned": true,
-        "immunity": "saignement",
+        "immunity": ["saignement"],
         "indice": 6597,
         "imageSmall": "assets/champ/magnetow/mini.png",
         "imageBig": "assets/champ/magnetow/big.png"
@@ -981,7 +1013,7 @@
         "rank": 1,
         "cs": 20,
         "owned": true,
-        "immunity": "incineration",
+        "immunity": ["incineration"],
         "indice": 6570,
         "imageSmall": "assets/champ/vautour/mini.png",
         "imageBig": "assets/champ/vautour/big.png"
@@ -992,7 +1024,7 @@
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity": "controles inverses",
+        "immunity": ["controles-inversés"],
         "indice": 6566,
         "imageSmall": "assets/champ/profx/mini.png",
         "imageBig": "assets/champ/profx/big.png"
@@ -1018,7 +1050,7 @@
         "imageSmall": "assets/champ/fleau/mini.png",
         "imageBig": "assets/champ/fleau/big.png"
       }, {
-        "name": "Rocket Raccoo,",
+        "name": "Rocket Raccoon",
         "classHero": "Tech",
         "stars": 6,
         "rank": 1,
@@ -1065,7 +1097,7 @@
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity": ["incineration", "vague de froid", "drain de pouvoir", "bloque pouvoir", "amollir"],
+        "immunity": ["incineration", "vague-de-froid", "drain de pouvoir", "bloque pouvoir", "amollir"],
         "indice": 6423,
         "imageSmall": "assets/champ/annihilus/mini.png",
         "imageBig": "assets/champ/annihilus/big.png"
@@ -1117,7 +1149,7 @@
         "cs": 20,
         "owned": true,
         "immunity": ["saignement", "poison"],
-        "indice": 6398,
+        "indice": 6399,
         "imageSmall": "assets/champ/sentinelle/mini.png",
         "imageBig": "assets/champ/sentinelle/big.png"
       }, {
@@ -1162,13 +1194,24 @@
         "imageSmall": "assets/champ/thor/mini.png",
         "imageBig": "assets/champ/thor/big.png"
       }, {
+        "name": "Night Trasher",
+        "classHero": "Virtuose",
+        "stars": 6,
+        "rank": 1,
+        "cs": 0,
+        "owned": true,
+        "immunity": ["incineration"] ,
+        "indice": 6363,
+        "imageSmall": "assets/champ/nighttrasher/mini.png",
+        "imageBig": "assets/champ/nighttrasher/big.png"
+      }, {
         "name": "Mangog",
         "classHero": "Mystique",
         "stars": 6,
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity": ["brise armure", "saignement"],
+        "immunity": ["brise-armure", "saignement"],
         "indice": 6357,
         "imageSmall": "assets/champ/mangog/mini.png",
         "imageBig": "assets/champ/mangog/big.png"
@@ -1183,6 +1226,16 @@
         "indice": 6357,
         "imageSmall": "assets/champ/anti-venom/mini.png",
         "imageBig": "assets/champ/anti-venom/big.png"
+      },{
+        "name": "Wong",
+        "classHero": "Mystique",
+        "stars": 6,
+        "rank": 1,
+        "cs": 0,
+        "owned": true,
+        "indice": 6350,
+        "imageSmall": "assets/champ/wong/mini.png",
+        "imageBig": "assets/champ/wong/big.png"
       }, {
         "name": "Ikaris",
         "classHero": "Cosmique",
@@ -1199,9 +1252,9 @@
         "classHero": "Mystique",
         "stars": 6,
         "rank": 1,
-        "cs": 0,
+        "cs": 20,
         "owned": true,
-        "indice": 6303,
+        "indice": 6779,
         "imageSmall": "assets/champ/thorjane/mini.png",
         "imageBig": "assets/champ/thorjane/big.png"
       }, {
@@ -1226,6 +1279,26 @@
         "imageSmall": "assets/champ/hela/mini.png",
         "imageBig": "assets/champ/hela/big.png"
       }, {
+        "name": "Nova",
+        "classHero": "Cosmique",
+        "stars": 6,
+        "rank": 1,
+        "cs": 0,
+        "owned": true,
+        "indice": 6263,
+        "imageSmall": "assets/champ/nova/mini.png",
+        "imageBig": "assets/champ/nova/big.png"
+      }, {
+        "name": "Loki",
+        "classHero": "Mystique",
+        "stars": 6,
+        "rank": 1,
+        "cs": 0,
+        "owned": true,
+        "indice": 6261,
+        "imageSmall": "assets/champ/loki/mini.png",
+        "imageBig": "assets/champ/loki/big.png"
+      },{
         "name": "M.O.D.O.K",
         "classHero": "Science",
         "stars": 6,
@@ -1250,10 +1323,10 @@
         "classHero": "Mystique",
         "stars": 6,
         "rank": 1,
-        "cs": 0,
+        "cs": 20,
         "owned": true,
-        "immunity": ["poison", "incineration", "vague de froid"],
-        "indice": 6213,
+        "immunity": ["poison", "incineration", "vague-de-froid"],
+        "indice": 6642,
         "imageSmall": "assets/champ/mephisto/mini.png",
         "imageBig": "assets/champ/mephisto/big.png"
       }, {
@@ -1276,6 +1349,17 @@
         "indice": 6204,
         "imageSmall": "assets/champ/platinumpool/mini.png",
         "imageBig": "assets/champ/platinumpool/big.png"
+      }, {
+        "name": "Crapaud",
+        "classHero": "Mutant",
+        "stars": 6,
+        "rank": 1,
+        "cs": 0,
+        "owned": true,
+        "immunity": ["poison"],
+        "indice": 6186,
+        "imageSmall": "assets/champ/crapaud/mini.png",
+        "imageBig": "assets/champ/crapaud/big.png"
       }, {
         "name": "Hawkeye",
         "classHero": "Virtuose",
@@ -1303,7 +1387,7 @@
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity": "poison",
+        "immunity": ["poison"],
         "indice": 6162,
         "imageSmall": "assets/champ/omegared/mini.png",
         "imageBig": "assets/champ/omegared/big.png"
@@ -1324,7 +1408,7 @@
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity": "decharge",
+        "immunity": ["decharge"],
         "indice": 6086,
         "imageSmall": "assets/champ/moleman/mini.png",
         "imageBig": "assets/champ/moleman/big.png"
@@ -1335,7 +1419,7 @@
         "rank": 1,
         "cs": 40,
         "owned": true,
-        "immunity": "poison",
+        "immunity":["poison"],
         "indice": 6009,
         "imageSmall": "assets/champ/captainmarvelclassic/mini.png",
         "imageBig": "assets/champ/captainmarvelclassic/big.png"
@@ -1406,7 +1490,7 @@
         "rank": 1,
         "cs": 20,
         "owned": true,
-        "immunity": "poison",
+        "immunity":["poison"],
         "indice": 5803,
         "imageSmall": "assets/champ/ronan/mini.png",
         "imageBig": "assets/champ/ronan/big.png"
@@ -1417,7 +1501,7 @@
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity": "poison",
+        "immunity": ["poison"],
         "indice": 5801,
         "imageSmall": "assets/champ/missmarvelkamala/mini.png",
         "imageBig": "assets/champ/missmarvelkamala/big.png"
@@ -1442,16 +1526,26 @@
         "imageSmall": "assets/champ/venom/mini.png",
         "imageBig": "assets/champ/venom/big.png"
       }, {
-        "name": "Spider-man (Les symbotes)",
-        "classHero": "Cosmique",
+        "name": "Kang",
+        "classHero": "Tech",
         "stars": 6,
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "indice": 5735,
+        "indice": 5758,
+        "imageSmall": "assets/champ/kang/mini.png",
+        "imageBig": "assets/champ/kang/big.png"
+      }, {
+        "name": "Spider-man (Les symbiotes)",
+        "classHero": "Cosmique",
+        "stars": 6,
+        "rank": 1,
+        "cs": 20,
+        "owned": true,
+        "indice": 6121,
         "imageSmall": "assets/champ/spidermancosmic/mini.png",
         "imageBig": "assets/champ/spidermancosmic/big.png"
-      }, {
+      },{
         "name": "Iron Patriot",
         "classHero": "Tech",
         "stars": 6,
@@ -1486,9 +1580,9 @@
         "classHero": "Virtuose",
         "stars": 6,
         "rank": 1,
-        "cs": 0,
+        "cs": 20,
         "owned": true,
-        "indice": 5576,
+        "indice": 5996,
         "imageSmall": "assets/champ/daredevil/mini.png",
         "imageBig": "assets/champ/daredevil/big.png"
       }, {
@@ -1508,7 +1602,7 @@
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity": "poison",
+        "immunity": ["poison"],
         "indice": 5496,
         "imageSmall": "assets/champ/abomination/mini.png",
         "imageBig": "assets/champ/abomination/big.png"
@@ -1519,7 +1613,7 @@
         "rank": 1,
         "cs": 0,
         "owned": true,
-        "immunity":"poison",
+        "immunity":["poison"],
         "indice": 5473,
         "imageSmall": "assets/champ/flechenoire/mini.png",
         "imageBig": "assets/champ/flechenoire/big.png"
@@ -1540,7 +1634,7 @@
         "rank": 5,
         "cs": 200,
         "owned": true,
-        "immunity": "incineration",
+        "immunity": ["incineration"],
         "indice": 14940,
         "imageSmall": "assets/champ/kittypryde/mini.png",
         "imageBig": "assets/champ/kittypryde/big.png"
@@ -1562,7 +1656,7 @@
         "rank": 5,
         "cs": 200,
         "owned": true,
-        "immunity": "controles inverses",
+        "immunity": ["controles-inversés"],
         "indice": 14658,
         "imageSmall": "assets/champ/profx/mini.png",
         "imageBig": "assets/champ/profx/big.png"
@@ -1582,9 +1676,9 @@
         "classHero": "Virtuose",
         "stars": 5,
         "rank": 5,
-        "cs": 180,
+        "cs": 200,
         "owned": true,
-        "indice": 14470,
+        "indice": 14650,
         "imageSmall": "assets/champ/falcon/mini.png",
         "imageBig": "assets/champ/falcon/big.png"
       }, {
@@ -1594,7 +1688,7 @@
         "rank": 5,
         "cs": 200,
         "owned": true,
-        "immunity": "incineration",
+        "immunity": ["incineration"],
         "indice": 14390,
         "imageSmall": "assets/champ/sunspot/mini.png",
         "imageBig": "assets/champ/sunspot/big.png"
@@ -1615,7 +1709,7 @@
         "rank": 5,
         "cs": 200,
         "owned": true,
-        "immunity": ["incineration", "vague de froid"],
+        "immunity": ["incineration", "vague-de-froid"],
         "indice": 14130,
         "imageSmall": "assets/champ/torche/mini.png",
         "imageBig": "assets/champ/torche/big.png"
@@ -1636,7 +1730,7 @@
         "rank": 5,
         "cs": 200,
         "owned": true,
-        "immunity": ["saignement", "poison", "vague de froid"],
+        "immunity": ["saignement", "poison", "vague-de-froid"],
         "indice": 13890,
         "imageSmall": "assets/champ/warlock/mini.png",
         "imageBig": "assets/champ/warlock/big.png"
@@ -1645,10 +1739,10 @@
         "classHero": "Cosmique",
         "stars": 5,
         "rank": 5,
-        "cs": 180,
+        "cs": 200,
         "owned": true,
-        "immunity": "poison",
-        "indice": 13840,
+        "immunity": ["poison"],
+        "indice": 13910,
         "imageSmall": "assets/champ/medusa/mini.png",
         "imageBig": "assets/champ/medusa/big.png"
       }, {

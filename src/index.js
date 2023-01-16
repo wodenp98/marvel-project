@@ -36,6 +36,8 @@ async function init() {
   handleClickStarsFilter();
   handleClickRankFilter();
   handleClickImmunityFilter();
+  handleClickCsFilter();
+  search();
 }
 
 init();

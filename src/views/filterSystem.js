@@ -99,7 +99,7 @@ function handleClickImmunityFilter() {
         button.classList.add(backgroundClass);
         buttonChildren.classList.add(`actived-${button.title.toLowerCase()}`);
 
-        sortByImmunity();
+        sortByImmunity(button.title);
       } else {
         isClicked = false;
         const buttonChildren = button.children[0];
@@ -115,6 +115,15 @@ function handleClickImmunityFilter() {
       }
     })
   );
+}
+
+function handleClickCsFilter() {
+  const selectButton = document.getElementById("cs-select");
+
+  selectButton.addEventListener("change", (e) => {
+    let number = Number(e.target.value);
+    sortByCs(number);
+  });
 }
 
 function sortByClass(type) {
@@ -141,9 +150,27 @@ function sortByRank(number) {
   displayHeroes(filteredList);
 }
 
-function sortByImmunity() {
+function sortByImmunity(type) {
+  let elementSort = `${type}`;
+  let heroImmunity = heros.filter((hero) => hero.immunity);
+
+  heroImmunity.sort((a, b) => {
+    let indexA = a.immunity.indexOf(elementSort);
+    let indexB = b.immunity.indexOf(elementSort);
+    return indexA - indexB;
+  });
+
+  let filteredList = heroImmunity.filter((obj) =>
+    obj.immunity.includes(elementSort)
+  );
+
+  filteredList.sort((a, b) => (a.indice < b.indice ? 1 : -1));
+  displayHeroes(filteredList);
+}
+
+function sortByCs(number) {
   let filteredList = heros.filter(function (hero) {
-    console.log(hero.immunity);
+    return hero.cs === number;
   });
   displayHeroes(filteredList);
 }

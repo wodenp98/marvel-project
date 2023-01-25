@@ -1152,10 +1152,10 @@
       "name": "Captain America (Sam Wilson)",
       "classHero": "Tech",
       "stars": 6,
-      "rank": 1,
-      "cs": 0,
+      "rank": 2,
+      "cs": 20,
       "owned": true,
-      "indice": 6442,
+      "indice": 13250,
       "imageSmall": "assets/champ/captainamericafalcon/mini.png",
       "imageBig": "assets/champ/captainamericafalcon/big.png"
     },

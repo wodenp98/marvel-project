@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/Navbar/Navbar";
+import AuthContext from "./auth/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +25,10 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AuthContext>
+            <Navbar />
+            {children}
+          </AuthContext>
         </ThemeProvider>
       </body>
     </html>

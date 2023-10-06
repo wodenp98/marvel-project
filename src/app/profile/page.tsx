@@ -9,17 +9,27 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { getServerSession } from "next-auth";
+import { Session, getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
+import prisma from "../../../prisma/clients";
+import { signOut } from "next-auth/react";
+import DeleteUserButton from "@/components/DeleteUser/DeleteUserButton";
+import UserInput from "@/components/UserInput/UserInput";
 
-// server components pour session puis client components pour la card
+interface CustomSession extends Session {
+  user: {
+    id: string;
+    name: string | null | undefined;
+    email: string;
+    image: string | null | undefined;
+  };
+}
 
 export default async function Page() {
-  const session = await getServerSession(authOptions);
-  console.log(session);
+  const session: CustomSession | null = await getServerSession(authOptions);
 
   if (!session) {
     redirect("/");
@@ -32,38 +42,13 @@ export default async function Page() {
           <CardTitle>Profil</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex justify-center mb-6">
-            {session.user?.image ? (
-              <Image
-                src={session.user?.image}
-                alt="avatar"
-                width={50}
-                height={50}
-                className="rounded-full"
-              />
-            ) : (
-              <Image
-                src="/assets/avatar.jpg"
-                alt="avatar"
-                width={50}
-                height={50}
-                className="rounded-full"
-              />
-            )}
-          </div>
-          {session.user?.name ? (
-            <CardDescription>{session.user?.name}</CardDescription>
-          ) : (
-            <div className="space-y-2">
-              <Label>Nom</Label> <Input placeholder="Nom" />
-            </div>
-          )}
-          <p className="mt-6">Email: {session.user?.email}</p>
+          <UserInput />
         </CardContent>
         <CardFooter className="flex justify-center">
-          <Button variant="destructive" className="uppercase ">
-            Supprimer Compte
-          </Button>
+          <DeleteUserButton
+            id={session?.user?.id}
+            email={session?.user?.email}
+          />
         </CardFooter>
       </Card>
     </main>

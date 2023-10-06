@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { signIn } from "next-auth/react";
+import { useToast } from "../ui/use-toast";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -32,6 +33,7 @@ const FormSchema = z.object({
 type FormValues = z.infer<typeof FormSchema>;
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+  const { toast } = useToast();
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
     defaultValues: { email: "" },
@@ -42,7 +44,17 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   function onSubmit(data: z.infer<typeof FormSchema>) {
     setIsLoading(true);
 
-    signIn("email", { email: data.email, callbackUrl: "/dashboard" });
+    signIn("email", {
+      email: data.email,
+      callbackUrl: "/dashboard",
+      redirect: false,
+    });
+
+    toast({
+      title: "Email sent",
+      description: "Check your inbox to sign in",
+      duration: 5000,
+    });
 
     setTimeout(() => {
       setIsLoading(false);

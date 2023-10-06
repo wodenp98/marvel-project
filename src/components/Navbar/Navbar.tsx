@@ -1,7 +1,7 @@
 import Logged from "@/app/auth/Logged";
 
 import { AvatarComponent } from "./AvatarComponent";
-import { ModeToggle } from "./ModeToggle";
+import { ToggleDarkMode } from "./ModeToggle";
 import { useSession } from "next-auth/react";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { Session, getServerSession } from "next-auth";
@@ -14,7 +14,7 @@ export default async function Navbar() {
       <AvatarComponent />
 
       <div className="flex items-center space-x-4">
-        <ModeToggle />
+        <ToggleDarkMode />
         {session?.user && <Logged image={session.user.image || ""} />}
       </div>
     </div>

@@ -70,8 +70,8 @@ model UserDatabase {
   classhero  String 
   imageUrl   String
   name       String
-  indice    Int
-  stars      Int
-  rank       Int
+  indice     Int
+  stars      String
+  rank       String
   cs         Int
 }

@@ -1,25 +1,21 @@
+/* eslint-disable react/no-unescaped-entities */
 import FilterClass from "@/components/FilterClass/FilterClass";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import HeroItem from "@/components/HeroItem/HeroItem";
 import prisma from "../../../prisma/clients";
-import Image from "next/image";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 async function getHeroes() {
   const data = await prisma.heroes.findMany();
   return data;
 }
 
-async function getUserHeroes() {
-  const data = await prisma.userDatabase.findMany();
-  return data;
-}
-
 export default async function Page() {
   const heroes = await getHeroes();
-  const userHeroes = await getUserHeroes();
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -40,9 +36,17 @@ export default async function Page() {
         <SearchBar />
       </div>
 
-      {/* create your dashboard, + ajout de consignes */}
-
       <section>
+        <Link href="/table">
+          <Button>Voir table</Button>
+        </Link>
+
+        <h1>Créer votre dashboard</h1>
+        <span>
+          Consignes: cliquez sur un héros pour l'ajouter et remplir les infos
+          nécessaire, une fois que vous avez fini cliquer sur le bouton j'ai
+          terminé pour accéder à votre dashboard
+        </span>
         <div className="flex justify-center items-center flex-wrap gap-6">
           {heroes.map((hero) => (
             <HeroItem

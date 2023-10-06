@@ -37,13 +37,26 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   callbacks: {
-    session: ({ session, token }) => {
-      return { ...session, user: { ...session.user, id: token.id } };
+    session: async ({ session, token }) => {
+      return {
+        ...session,
+        user: { ...session.user, id: token.id, name: token.name },
+      };
     },
-    jwt: ({ token, user }) => {
+    jwt: async ({ token, user, session, trigger }) => {
+      if (trigger === "update" && session?.name) {
+        token.name = session.name;
+        const newName = await prisma.user.update({
+          where: { id: token.id as string },
+          data: { name: token.name },
+        });
+
+        return { ...token, name: newName.name };
+      }
       if (user) {
         return { ...token, id: user.id };
       }
+
       return token;
     },
   },

@@ -2,24 +2,21 @@
 import FilterClass from "@/components/FilterClass/FilterClass";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import HeroItem from "@/components/HeroItem/HeroItem";
-import prisma from "../../../prisma/clients";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import { redirect } from "next/navigation";
+import { prisma } from "@/utils/prisma/prisma";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 async function getHeroes() {
   const data = await prisma.heroes.findMany();
+
   return data;
 }
 
-export default async function Page() {
+export default async function Dashboard() {
   const heroes = await getHeroes();
-  const session = await getServerSession(authOptions);
 
-  if (!session) {
-    redirect("/");
+  if (!heroes) {
+    return <div>no data</div>;
   }
 
   return (

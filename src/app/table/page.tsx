@@ -47,8 +47,7 @@ type HeroItem = {
   rank: "1" | "5" | "2" | "3" | "4";
   cs: number;
 };
-
-export const columns: ColumnDef<HeroItem>[] = [
+const columns: ColumnDef<HeroItem>[] = [
   {
     id: "select",
     header: ({ table }) => (

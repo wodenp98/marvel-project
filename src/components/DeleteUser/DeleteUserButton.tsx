@@ -1,8 +1,7 @@
 "use client";
 
-import prisma from "../../../prisma/clients";
+import { prisma } from "@/utils/prisma/prisma";
 import { Button } from "../ui/button";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { signOut } from "next-auth/react";
 
 export default function DeleteUserButton({

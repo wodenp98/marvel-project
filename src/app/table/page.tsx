@@ -107,6 +107,7 @@ const columns: ColumnDef<HeroItem>[] = [
 
 export default function Page() {
   const data = useStore((state) => state.items);
+  const removeItem = useStore((state) => state.removeItem);
   console.log(data);
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -134,6 +135,15 @@ export default function Page() {
       rowSelection,
     },
   });
+
+  const deleteRow = () => {
+    const test = table.getFilteredSelectedRowModel();
+    console.log("test", test);
+    test.rows.forEach((row) => {
+      console.log("row", row.original);
+      // removeItem(row.original);
+    });
+  };
 
   return (
     <div>
@@ -252,6 +262,7 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <Button onClick={deleteRow}>Delete row</Button>
     </div>
   );
 }

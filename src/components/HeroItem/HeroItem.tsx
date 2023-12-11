@@ -40,6 +40,7 @@ type HeroItemProps = {
   image: string;
   classHero: string;
   stars: number;
+  id: string;
 };
 
 const heroSchema = z.object({
@@ -92,6 +93,7 @@ const heroSchema = z.object({
     .max(200, {
       message: "CS must not be greater than 200.",
     }),
+  id: z.string(),
 });
 
 type ProfileFormValues = z.infer<typeof heroSchema>;
@@ -101,6 +103,7 @@ export default function HeroItem({
   image,
   classHero,
   stars,
+  id,
 }: HeroItemProps) {
   const getHero = useStore((state) => state.items);
   const addHero = useStore((state) => state.addItem);
@@ -111,11 +114,13 @@ export default function HeroItem({
       name: name,
       imageUrl: image,
       classhero: classHero,
+      id: id,
     },
     mode: "onChange",
   });
 
   const onSubmit = (data: ProfileFormValues) => {
+    console.log("data", data);
     if (
       getHero.some(
         (hero) => hero.name === data.name && hero.stars === data.stars

@@ -9,12 +9,13 @@ type Item = {
   stars: "5" | "6" | "7";
   rank: "1" | "5" | "2" | "3" | "4";
   cs: number;
+  id: string;
 };
 
 type Store = {
   items: Item[];
   addItem: (item: Item) => void;
-  removeItem: (index: number) => void;
+  removeItem: (index: string) => void;
   reset: () => void;
 };
 
@@ -24,7 +25,9 @@ const useStore = create<Store>()(
       items: [],
       addItem: (item) => set((state) => ({ items: [...state.items, item] })),
       removeItem: (index) =>
-        set((state) => ({ items: state.items.filter((_, i) => i !== index) })),
+        set((state) => ({
+          items: state.items.filter((item) => item.id !== index),
+        })),
       reset: () => set({ items: [] }),
     }),
     {

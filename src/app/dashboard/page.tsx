@@ -6,6 +6,8 @@ import { prisma } from "@/utils/prisma/prisma";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+// valider la table pour push dashboard user
+//delete data from table
 async function getHeroes() {
   const data = await prisma.heroes.findMany();
 
@@ -48,6 +50,7 @@ export default async function Dashboard() {
           {heroes.map((hero) => (
             <HeroItem
               key={hero.id}
+              id={hero.id}
               name={hero.name}
               image={hero.imageUrl}
               classHero={hero.classhero}

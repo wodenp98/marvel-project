@@ -46,6 +46,7 @@ type HeroItem = {
   stars: "5" | "6" | "7";
   rank: "1" | "5" | "2" | "3" | "4";
   cs: number;
+  id: string;
 };
 const columns: ColumnDef<HeroItem>[] = [
   {
@@ -140,8 +141,8 @@ export default function Page() {
     const test = table.getFilteredSelectedRowModel();
     console.log("test", test);
     test.rows.forEach((row) => {
-      console.log("row", row.original);
-      // removeItem(row.original);
+      console.log("row", row.original.id);
+      removeItem(row.original.id);
     });
   };
 
@@ -263,6 +264,7 @@ export default function Page() {
         </div>
       </div>
       <Button onClick={deleteRow}>Delete row</Button>
+      <Button>Create your dashboard</Button>
     </div>
   );
 }

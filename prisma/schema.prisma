@@ -43,6 +43,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  userDatabase  UserDatabase[]
 }
 
 
@@ -58,11 +59,13 @@ model heroes {
 
 model UserDatabase {
   id         String  @id @default(auto()) @map("_id") @db.ObjectId
-  classhero  String 
+  classhero  String
+  userId     String   @db.ObjectId 
   imageUrl   String
   name       String
   indice     Int
   stars      String
   rank       String
   cs         Int
+  user       User  @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

@@ -5,6 +5,7 @@ import HeroItem from "@/components/HeroItem/HeroItem";
 import { prisma } from "@/utils/prisma/prisma";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 
 // valider la table pour push dashboard user
 //delete data from table
@@ -14,8 +15,20 @@ async function getHeroes() {
   return data;
 }
 
+async function getUserDatabase(userId: string) {
+  const data = await prisma.userDatabase.findMany({
+    where: {
+      id: userId,
+    },
+  });
+  return data;
+}
+
 export default async function Dashboard() {
+  const session = await getServerSession();
+  console.log("session", session);
   const heroes = await getHeroes();
+  // const userDatabase = await getUserDatabase("cl9kx9kxw0000x3m9kq5u1xh3");
 
   if (!heroes) {
     return <div>no data</div>;

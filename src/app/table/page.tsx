@@ -146,6 +146,8 @@ export default function Page() {
     });
   };
 
+  const addToDashboard = async () => {};
+
   return (
     <div>
       <Link href="/dashboard">
@@ -264,7 +266,7 @@ export default function Page() {
         </div>
       </div>
       <Button onClick={deleteRow}>Delete row</Button>
-      <Button>Create your dashboard</Button>
+      <Button onClick={addToDashboard}>Create your dashboard</Button>
     </div>
   );
 }

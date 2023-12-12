@@ -98,6 +98,8 @@ const heroSchema = z.object({
 
 type ProfileFormValues = z.infer<typeof heroSchema>;
 
+// modifier le form, si le hero est max 6 on peut pas lui mettre 7, reflechir a comment ajouter des héros apres la creation du dash
+
 export default function HeroItem({
   name,
   image,

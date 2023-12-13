@@ -7,12 +7,13 @@ import {
   DialogContent,
   DialogTitle,
   DialogDescription,
+  DialogClose,
 } from "@/components/ui/dialog";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { DialogHeader, DialogFooter } from "../ui/dialog";
 import { Input } from "../ui/input";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   Select,
   SelectTrigger,
@@ -33,7 +34,6 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/components/ui/use-toast";
-import { get } from "http";
 
 type HeroItemProps = {
   name: string;
@@ -98,8 +98,6 @@ const heroSchema = z.object({
 
 type ProfileFormValues = z.infer<typeof heroSchema>;
 
-// modifier le form, si le hero est max 6 on peut pas lui mettre 7, reflechir a comment ajouter des héros apres la creation du dash
-
 export default function HeroItem({
   name,
   image,
@@ -107,16 +105,19 @@ export default function HeroItem({
   stars,
   id,
 }: HeroItemProps) {
+  const [isOpen, setIsOpen] = useState(false);
   const getHero = useStore((state) => state.items);
   const addHero = useStore((state) => state.addItem);
   const { toast } = useToast();
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(heroSchema),
     defaultValues: {
+      indice: 0,
       name: name,
       imageUrl: image,
       classhero: classHero,
       id: id,
+      cs: 0,
     },
     mode: "onChange",
   });
@@ -138,6 +139,8 @@ export default function HeroItem({
         title: "Hero added",
         description: "Hero added to your dashboard",
       });
+
+      setIsOpen(false);
     }
   };
 
@@ -161,7 +164,7 @@ export default function HeroItem({
   }, [classHero]);
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <div className="relative cursor-pointer">
           <Image
@@ -192,42 +195,15 @@ export default function HeroItem({
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
               control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Nom</FormLabel>
-                  <FormControl>
-                    <Input placeholder={field.value} {...field} disabled />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="classhero"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Classe</FormLabel>
-                  <FormControl>
-                    <Input placeholder={field.value} {...field} disabled />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
               name="indice"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Indice</FormLabel>
                   <FormControl>
                     <Input
-                      type="number"
+                      type="text"
                       placeholder="Nombre entre 1000 et 60000"
                       {...field}
-                      value={field.value || ""}
                       onChange={(e) => {
                         field.onChange(Number(e.target.value));
                       }}
@@ -237,31 +213,59 @@ export default function HeroItem({
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="stars"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Etoiles</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="-- Choisissez une option --" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="5">5</SelectItem>
-                      <SelectItem value="6">6</SelectItem>
-                      <SelectItem value="7">7</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            {stars === 7 ? (
+              <FormField
+                control={form.control}
+                name="stars"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Etoiles</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="-- Choisissez une option --" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="5">5</SelectItem>
+                        <SelectItem value="6">6</SelectItem>
+                        <SelectItem value="7">7</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            ) : (
+              <FormField
+                control={form.control}
+                name="stars"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Etoiles</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="-- Choisissez une option --" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="5">5</SelectItem>
+                        <SelectItem value="6">6</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+
             <FormField
               control={form.control}
               name="rank"
@@ -298,10 +302,9 @@ export default function HeroItem({
                   <FormLabel>C.Spéciale</FormLabel>
                   <FormControl>
                     <Input
-                      type="number"
+                      type="text"
                       placeholder="Nombre entre 0 et 200"
                       {...field}
-                      value={field.value || ""}
                       onChange={(e) => {
                         field.onChange(Number(e.target.value));
                       }}

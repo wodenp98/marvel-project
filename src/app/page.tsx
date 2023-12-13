@@ -1,9 +1,17 @@
 import { UserAuthForm } from "@/components/UserAuthForm/UserAuthForm";
-
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 export default async function Home() {
+  const session = await getServerSession(authOptions);
+
+  if (session) {
+    redirect("/dashboard");
+  }
+
   return (
     <main className="h-[90vh]">
       <div className="container relative hidden h-full flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">

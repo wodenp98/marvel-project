@@ -34,6 +34,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/components/ui/use-toast";
+import { ScrollArea } from "../ui/scroll-area";
 
 type HeroItemProps = {
   name: string;
@@ -179,9 +180,9 @@ export default function HeroItem({
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] h-[70vh] overflow-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-100">
+      <DialogContent className="sm:max-w-[425px] h-[90vh]">
         <DialogHeader>
-          <DialogTitle className="flex items-center justify-center">
+          <DialogTitle className="flex items-center justify-center space-x-4">
             <p>{name}</p>
             <Image src={heroImage} alt={name} width={30} height={30} />
           </DialogTitle>
@@ -192,7 +193,7 @@ export default function HeroItem({
 
         {/* form avec toutes les données, plus les données non modifiable comme nom et classes si le hero est max 5 peut pas sélectionner 6 */}
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
               name="indice"

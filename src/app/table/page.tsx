@@ -162,23 +162,9 @@ export default function Page() {
       }),
     });
 
-    // for (const heroes of data) {
-    //   await prisma.userDatabase.create({
-    //     data: {
-    //       id: heroes.id,
-    //       name: heroes.name,
-    //       classhero: heroes.classhero,
-    //       stars: heroes.stars,
-    //       indice: heroes.indice,
-    //       rank: heroes.rank,
-    //       cs: heroes.cs,
-    //       imageUrl: heroes.imageUrl,
-    //       userId: session.user.id,
-    //     },
-    //   });
-    // }
-
-    // reset();
+    if (res.ok) {
+      reset();
+    }
   };
 
   return (

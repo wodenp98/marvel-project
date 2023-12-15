@@ -24,10 +24,17 @@ async function getHeroes() {
 async function getUserDatabase(userId: string) {
   const data = await prisma.userDatabase.findMany({
     where: {
-      id: userId,
+      userId: userId,
     },
   });
-  return data;
+
+  const heroes = await prisma.userDashboard.findMany({
+    where: {
+      userDatabaseId: data[0].id,
+    },
+  });
+
+  return heroes;
 }
 
 export default async function Dashboard() {

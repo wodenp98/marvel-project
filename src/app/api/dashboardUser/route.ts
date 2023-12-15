@@ -13,7 +13,13 @@ export async function POST(request: Request) {
   for (const hero of heros) {
     const test = await prisma.userDashboard.create({
       data: {
-        ...hero,
+        name: hero.name,
+        imageUrl: hero.imageUrl,
+        classhero: hero.classhero,
+        indice: hero.indice,
+        stars: hero.stars,
+        rank: hero.rank,
+        cs: hero.cs,
         userDatabaseId: userDatabase.id,
       },
     });

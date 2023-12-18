@@ -3,12 +3,20 @@ import { Toggle } from "@/components/ui/toggle";
 import { useState } from "react";
 import Image from "next/image";
 
-export default function FilterClass({ title }: { title: string }) {
+export default function FilterClass({
+  title,
+  onClick,
+}: {
+  title: string;
+  onClick: (event: any) => void;
+}) {
   const [pressedButton, setPressedButton] = useState(false);
 
   const toggleButton = () => {
     setPressedButton(!pressedButton);
+    onClick({ target: { value: title.toLowerCase() } }); // Appel de la fonction onClick avec le titre en paramètre
   };
+
   return (
     <Toggle
       aria-label="Toggle"

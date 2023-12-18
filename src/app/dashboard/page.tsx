@@ -8,8 +8,9 @@ import { Session, getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
-import SearchBar from "@/components/SearchBar/SearchBar";
 import { HeroContainer } from "@/components/HeroItem/HeroContainer";
+import { NoUserDashboard } from "@/components/HeroItem/NoUserDashboard";
+import { UserDashboard } from "@/components/HeroItem/UserDashboard";
 
 async function getHeroes() {
   const data = await prisma.heroes.findMany({
@@ -22,19 +23,16 @@ async function getHeroes() {
 }
 
 async function getUserDatabase(userId: string) {
-  const data = await prisma.userDatabase.findMany({
+  const data = await prisma.userDatabase.findFirst({
     where: {
       userId: userId,
     },
-  });
-
-  const heroes = await prisma.userDashboard.findMany({
-    where: {
-      userDatabaseId: data[0].id,
+    include: {
+      userDashboard: true,
     },
   });
 
-  return heroes;
+  return data?.userDashboard || [];
 }
 
 export default async function Dashboard() {
@@ -45,52 +43,23 @@ export default async function Dashboard() {
     return null;
   }
 
-  // const userDatabase = await getUserDatabase(session.user.id);
-  // console.log("userDatabase", userDatabase);
-
   if (!heroes) {
     return <div>no data</div>;
   }
 
+  const userDatabase = await getUserDatabase(session.user.id);
+
+  if (userDatabase.length !== 0) {
+    return (
+      <main className="h-screen flex flex-col items-center">
+        <UserDashboard heroes={userDatabase} />
+      </main>
+    );
+  }
+
   return (
     <main>
-      <div className="flex justify-between m-8">
-        <div>
-          <FilterClass title="cosmic" />
-          <FilterClass title="skill" />
-          <FilterClass title="mystic" />
-          <FilterClass title="tech" />
-          <FilterClass title="mutant" />
-          <FilterClass title="science" />
-        </div>
-        <SearchBar />
-      </div>
-
-      <section>
-        <Link href="/table">
-          <Button>Voir table</Button>
-        </Link>
-
-        <h1>Créer votre dashboard</h1>
-        <span>
-          Consignes: cliquez sur un héros pour l'ajouter et remplir les infos
-          nécessaire, une fois que vous avez fini cliquer sur le bouton j'ai
-          terminé pour accéder à votre dashboard
-        </span>
-        <div className="flex justify-center items-center flex-wrap gap-6 mb-4">
-          <HeroContainer heroes={heroes} />
-          {/* {heroes.map((hero) => (
-            <HeroItem
-              key={hero.id}
-              id={hero.id}
-              name={hero.name}
-              image={hero.imageUrl}
-              classHero={hero.classhero}
-              stars={hero.stars}
-            />
-          ))} */}
-        </div>
-      </section>
+      <NoUserDashboard heroes={heroes} />
     </main>
   );
 }

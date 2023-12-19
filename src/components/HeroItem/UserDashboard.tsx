@@ -15,7 +15,7 @@ type HeroesProps = {
 
 export const UserDashboard = ({ heroes }: HeroesProps) => {
   return (
-    <div className="flex justify-center items-center flex-wrap gap-4 mx-20 mb-4">
+    <div className="flex justify-center items-center flex-wrap gap-16 mx-20 mb-4">
       {heroes.map((hero) => (
         <HeroDashboard
           key={hero.id}

@@ -14,28 +14,8 @@ import { Button } from "../ui/button";
 import { DialogHeader, DialogFooter } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { useMemo, useState } from "react";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
-import { useForm } from "react-hook-form";
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormDescription,
-  FormMessage,
-} from "@/components/ui/form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useToast } from "@/components/ui/use-toast";
-import { ScrollArea } from "../ui/scroll-area";
-import Link from "next/link";
+import { CardHeroes } from "../component/card-heroes";
+import { Car } from "lucide-react";
 
 type HeroItemProps = {
   name: string;
@@ -76,30 +56,51 @@ export default function HeroDashboard({
     }
   }, [classHero]);
 
+  // const heroBackground = useMemo(() => {
+  //   switch (classHero) {
+  //     case "Science":
+  //       return "from-green-700 via-green-700";
+  //     case "Cosmic":
+  //       return "from-teal-700 via-teal-700";
+  //     case "Skill":
+  //       return "from-red-700 via-red-700";
+  //     case "Mutant":
+  //       return "from-yellow-500 via-yellow-500";
+  //     case "Tech":
+  //       return "from-blue-700 via-blue-900";
+  //     case "Mystic":
+  //       return "from-purple-700 via-purple-900";
+  //     default:
+  //       return classHero;
+  //   }
+  // }, [classHero]);
+
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <div>
-          <div className="relative h-20 w-24 transform origin-top-left scale-50 select-none opacity-100">
-            <div className="transform origin-top-left translate-x-[-1rem] translate-y-[-0.6rem] scale-x-[0.511719] scale-y-[0.511719]">
-              <div className="absolute bg-gradient-to-br from-purple-700 to-black opacity-70 transform origin-bottom-right h-64 w-80 translate-x-[3.875rem] translate-y-[2.75rem]"></div>
-              <Image
-                src={`/assets/border/border-${stars}.png`}
-                alt="Frame"
-                width={100}
-                height={100}
-                className="absolute max-w-none w-96 h-80 transform origin-top-left translate-x-6"
-              />
-              <Image
-                src={image}
-                alt="hero"
-                width={80}
-                height={70}
-                className="absolute max-w-none bg-cover w-80 h-72 transform origin-top-left translate-x-12"
-              />
-            </div>
+        {/* <div className="relative cursor-pointer">
+          <Image
+            src={`/assets/border/border-${stars}.png`}
+            alt={`Border ${stars}`}
+            width={100}
+            height={100}
+            priority
+          />
+          <div className="absolute bottom-2 left-2 ">
+            <Image src={image} alt={name} width={80} height={80} />
           </div>
-        </div>
+          <div className="absolute bottom-0 w-full h-4 bg-black rounded-sm">
+            <span>{stars}</span>
+            <span>{name}</span>
+            <span>{indice}</span>
+          </div>
+        </div> */}
+        <CardHeroes
+          image={image}
+          classHero={classHero}
+          name={name}
+          indice={indice}
+        />
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] h-[90vh]">
         <DialogHeader>
@@ -114,4 +115,28 @@ export default function HeroDashboard({
       </DialogContent>
     </Dialog>
   );
+}
+
+{
+  /* <div className="relative h-20 w-24 transform origin-top-left scale-50 select-none opacity-100">
+            <div className="transform origin-top-left translate-x-[-1rem] translate-y-[-0.6rem] scale-x-[0.511719] scale-y-[0.511719]">
+              <div
+                className={`absolute bg-gradient-to-b ${heroBackground} to-black bg-opacity-70 transform origin-bottom-right h-64 w-80 translate-x-[3.875rem] translate-y-[2.75rem]`}
+              ></div>
+              <Image
+                src={`/assets/border/border-${stars}.png`}
+                alt="Frame"
+                width={100}
+                height={100}
+                className="absolute max-w-none w-96 h-80 transform origin-top-left translate-x-6"
+              />
+              <Image
+                src={image}
+                alt="hero"
+                width={80}
+                height={70}
+                className="absolute max-w-none bg-cover w-80 h-64 transform origin-top-left translate-x-12 translate-y-6"
+              />
+            </div>
+          </div> */
 }

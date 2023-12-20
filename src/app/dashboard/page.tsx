@@ -51,7 +51,7 @@ export default async function Dashboard() {
 
   if (userDatabase.length !== 0) {
     return (
-      <main className="h-screen flex flex-col items-center">
+      <main className="h-screen">
         <UserDashboard heroes={userDatabase} />
       </main>
     );

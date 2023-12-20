@@ -1,23 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import useStore from "@/lib/store/tableHeroes";
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
   DialogTitle,
-  DialogDescription,
-  DialogClose,
 } from "@/components/ui/dialog";
 import Image from "next/image";
-import { Button } from "../ui/button";
-import { DialogHeader, DialogFooter } from "../ui/dialog";
-import { Input } from "../ui/input";
+import { DialogHeader } from "../ui/dialog";
 import { useMemo, useState } from "react";
-import { CardHeroes } from "../component/card-heroes";
-import { Car } from "lucide-react";
+import { getHeroImage, getHeroBackground } from "@/utils/helpers";
+import { unique } from "next/dist/build/utils";
 
 type HeroItemProps = {
+  uniqueKey: string;
   name: string;
   image: string;
   classHero: string;
@@ -26,6 +22,14 @@ type HeroItemProps = {
   cs: number;
   id: string;
 };
+{
+  /* TODO
+BOUTONS FILTRE ET RESET A REFAIRE
+ADD BOUTON TRI RANK ET STARS
+TRIER EN FONCTION DU RANK ET DES STARS DEFINIS
+AJOUTER OU MODIFIER DES HEROS
+*/
+}
 
 export default function HeroDashboard({
   name,
@@ -33,74 +37,78 @@ export default function HeroDashboard({
   classHero,
   stars,
   indice,
+  cs,
   id,
+  uniqueKey,
 }: HeroItemProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const heroImage = useMemo(() => {
-    switch (classHero) {
-      case "Science":
-        return "/assets/science-colored.svg";
-      case "Cosmic":
-        return "/assets/cosmic-colored.svg";
-      case "Skill":
-        return "/assets/skill-colored.svg";
-      case "Mutant":
-        return "/assets/mutant-colored.svg";
-      case "Tech":
-        return "/assets/tech-colored.svg";
-      case "Mystic":
-        return "/assets/mystic-colored.svg";
-      default:
-        return classHero;
-    }
-  }, [classHero]);
+  const heroImage = useMemo(() => getHeroImage(classHero), [classHero]);
 
-  // const heroBackground = useMemo(() => {
-  //   switch (classHero) {
-  //     case "Science":
-  //       return "from-green-700 via-green-700";
-  //     case "Cosmic":
-  //       return "from-teal-700 via-teal-700";
-  //     case "Skill":
-  //       return "from-red-700 via-red-700";
-  //     case "Mutant":
-  //       return "from-yellow-500 via-yellow-500";
-  //     case "Tech":
-  //       return "from-blue-700 via-blue-900";
-  //     case "Mystic":
-  //       return "from-purple-700 via-purple-900";
-  //     default:
-  //       return classHero;
-  //   }
-  // }, [classHero]);
+  const heroBackground = useMemo(
+    () => getHeroBackground(classHero),
+    [classHero]
+  );
+
+  const starsDisplay = Array.from({ length: stars }, (_, index) => (
+    <>
+      {cs === 0 ? (
+        <Image
+          key={uniqueKey}
+          src="/assets/stars/starsnodup.png"
+          alt="Stars No Dup"
+          width={24}
+          height={24}
+        />
+      ) : (
+        <Image
+          key={uniqueKey}
+          src="/assets/stars/starsdup.png"
+          alt="Stars Dup"
+          width={24}
+          height={24}
+        />
+      )}
+    </>
+  ));
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen} key={uniqueKey}>
       <DialogTrigger asChild>
-        {/* <div className="relative cursor-pointer">
+        <div
+          className={`relative flex flex-col items-center bg-gradient-to-b ${heroBackground} to-black p-4 rounded-lg w-52 max-w-sm mx-auto`}
+          key={uniqueKey}
+        >
           <Image
-            src={`/assets/border/border-${stars}.png`}
-            alt={`Border ${stars}`}
-            width={100}
-            height={100}
-            priority
+            alt={name}
+            className="w-3/4 h-auto mt-2 rounded-t-lg"
+            height="200"
+            src={image}
+            style={{
+              aspectRatio: "200/200",
+              objectFit: "cover",
+            }}
+            width="200"
           />
-          <div className="absolute bottom-2 left-2 ">
-            <Image src={image} alt={name} width={80} height={80} />
+          <div className="absolute top-0 left-0 m-2">
+            <p className="text-white ">{cs}</p>
           </div>
-          <div className="absolute bottom-0 w-full h-4 bg-black rounded-sm">
-            <span>{stars}</span>
-            <span>{name}</span>
-            <span>{indice}</span>
+          <div className="absolute top-0 right-0 m-2">
+            <div className="bg-white px-1 py-1 rounded-full flex items-center">
+              <Image src={heroImage} alt={name} width={30} height={30} />
+            </div>
           </div>
-        </div> */}
-        <CardHeroes
-          image={image}
-          classHero={classHero}
-          name={name}
-          indice={indice}
-        />
+
+          <div className="flex justify-center items-center px-2 mt-6">
+            <div className="flex items-center">{starsDisplay}</div>
+          </div>
+          <div className="text-center mt-2">
+            <h3 className="text-white text-lg font-bold">
+              {name.replace(/\([^)]*\)/g, "")}
+            </h3>
+            <p className="text-white ">{indice}</p>
+          </div>
+        </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] h-[90vh]">
         <DialogHeader>
@@ -115,28 +123,4 @@ export default function HeroDashboard({
       </DialogContent>
     </Dialog>
   );
-}
-
-{
-  /* <div className="relative h-20 w-24 transform origin-top-left scale-50 select-none opacity-100">
-            <div className="transform origin-top-left translate-x-[-1rem] translate-y-[-0.6rem] scale-x-[0.511719] scale-y-[0.511719]">
-              <div
-                className={`absolute bg-gradient-to-b ${heroBackground} to-black bg-opacity-70 transform origin-bottom-right h-64 w-80 translate-x-[3.875rem] translate-y-[2.75rem]`}
-              ></div>
-              <Image
-                src={`/assets/border/border-${stars}.png`}
-                alt="Frame"
-                width={100}
-                height={100}
-                className="absolute max-w-none w-96 h-80 transform origin-top-left translate-x-6"
-              />
-              <Image
-                src={image}
-                alt="hero"
-                width={80}
-                height={70}
-                className="absolute max-w-none bg-cover w-80 h-64 transform origin-top-left translate-x-12 translate-y-6"
-              />
-            </div>
-          </div> */
 }

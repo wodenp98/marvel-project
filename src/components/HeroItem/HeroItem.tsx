@@ -35,6 +35,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/components/ui/use-toast";
 import { ScrollArea } from "../ui/scroll-area";
+import { getHeroImage, getHeroBackground } from "@/utils/helpers";
 
 type HeroItemProps = {
   name: string;
@@ -145,38 +146,40 @@ export default function HeroItem({
     }
   };
 
-  const heroImage = useMemo(() => {
-    switch (classHero) {
-      case "Science":
-        return "/assets/science-colored.svg";
-      case "Cosmic":
-        return "/assets/cosmic-colored.svg";
-      case "Skill":
-        return "/assets/skill-colored.svg";
-      case "Mutant":
-        return "/assets/mutant-colored.svg";
-      case "Tech":
-        return "/assets/tech-colored.svg";
-      case "Mystic":
-        return "/assets/mystic-colored.svg";
-      default:
-        return classHero;
-    }
-  }, [classHero]);
+  const heroImage = useMemo(() => getHeroImage(classHero), [classHero]);
+
+  const heroBackground = useMemo(
+    () => getHeroBackground(classHero),
+    [classHero]
+  );
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <div className="relative cursor-pointer">
+        <div
+          className={`relative flex flex-col items-center bg-gradient-to-b ${heroBackground} to-black p-4 rounded-lg w-52 max-w-sm mx-auto`}
+        >
           <Image
-            src={`/assets/border/border-${stars}.png`}
-            alt={`Border ${stars}`}
-            width={100}
-            height={100}
-            priority
+            alt={name}
+            className="w-3/4 h-auto mt-2 rounded-t-lg"
+            height="200"
+            src={image}
+            style={{
+              aspectRatio: "200/200",
+              objectFit: "cover",
+            }}
+            width="200"
           />
-          <div className="absolute bottom-2 left-2 ">
-            <Image src={image} alt={name} width={80} height={80} />
+          <div className="absolute top-0 right-0 m-2">
+            <div className="bg-white px-1 py-1 rounded-full flex items-center">
+              <Image src={heroImage} alt={name} width={30} height={30} />
+            </div>
+          </div>
+
+          <div className="text-center mt-2">
+            <h3 className="text-white text-lg font-bold">
+              {name.replace(/\([^)]*\)/g, "")}
+            </h3>
           </div>
         </div>
       </DialogTrigger>

@@ -13,7 +13,6 @@ import { getHeroImage, getHeroBackground } from "@/utils/helpers";
 import { unique } from "next/dist/build/utils";
 
 type HeroItemProps = {
-  uniqueKey: string;
   name: string;
   image: string;
   classHero: string;
@@ -21,15 +20,8 @@ type HeroItemProps = {
   indice: number;
   cs: number;
   id: string;
+  rank: string;
 };
-{
-  /* TODO
-BOUTONS FILTRE ET RESET A REFAIRE
-ADD BOUTON TRI RANK ET STARS
-TRIER EN FONCTION DU RANK ET DES STARS DEFINIS
-AJOUTER OU MODIFIER DES HEROS
-*/
-}
 
 export default function HeroDashboard({
   name,
@@ -37,13 +29,11 @@ export default function HeroDashboard({
   classHero,
   stars,
   indice,
+  rank,
   cs,
   id,
-  uniqueKey,
 }: HeroItemProps) {
   const [isOpen, setIsOpen] = useState(false);
-
-  const heroImage = useMemo(() => getHeroImage(classHero), [classHero]);
 
   const heroBackground = useMemo(
     () => getHeroBackground(classHero),
@@ -51,10 +41,9 @@ export default function HeroDashboard({
   );
 
   const starsDisplay = Array.from({ length: stars }, (_, index) => (
-    <>
+    <div key={index}>
       {cs === 0 ? (
         <Image
-          key={uniqueKey}
           src="/assets/stars/starsnodup.png"
           alt="Stars No Dup"
           width={24}
@@ -62,22 +51,20 @@ export default function HeroDashboard({
         />
       ) : (
         <Image
-          key={uniqueKey}
           src="/assets/stars/starsdup.png"
           alt="Stars Dup"
           width={24}
           height={24}
         />
       )}
-    </>
+    </div>
   ));
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen} key={uniqueKey}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <div
           className={`relative flex flex-col items-center bg-gradient-to-b ${heroBackground} to-black p-4 rounded-lg w-52 max-w-sm mx-auto`}
-          key={uniqueKey}
         >
           <Image
             alt={name}
@@ -91,11 +78,11 @@ export default function HeroDashboard({
             width="200"
           />
           <div className="absolute top-0 left-0 m-2">
-            <p className="text-white ">{cs}</p>
+            <p className="text-white font-bold">{cs}</p>
           </div>
           <div className="absolute top-0 right-0 m-2">
             <div className="bg-white px-1 py-1 rounded-full flex items-center">
-              <Image src={heroImage} alt={name} width={30} height={30} />
+              <p className="text-black text-xl font-bold">R{rank}</p>
             </div>
           </div>
 
@@ -106,12 +93,12 @@ export default function HeroDashboard({
             <h3 className="text-white text-lg font-bold">
               {name.replace(/\([^)]*\)/g, "")}
             </h3>
-            <p className="text-white ">{indice}</p>
+            <p className="text-white font-bold">{indice}</p>
           </div>
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] h-[90vh]">
-        <DialogHeader>
+        {/* <DialogHeader>
           <DialogTitle className="flex items-center justify-center space-x-4">
             <p>{name}</p>
             <Image src={heroImage} alt={name} width={30} height={30} />
@@ -119,7 +106,7 @@ export default function HeroDashboard({
         </DialogHeader>
         <div className="flex justify-center">
           <Image src={image} alt={name} width={120} height={120} />
-        </div>
+        </div> */}
       </DialogContent>
     </Dialog>
   );

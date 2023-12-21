@@ -18,6 +18,12 @@ type HeroesProps = {
   }[];
 };
 
+/* TODO
+BOUTON DE TRI A REFAIRE + RESET
+TRI RANK ET STARS
+MODIFICATION DE HEROS
+*/
+
 export const UserDashboard = ({ heroes }: HeroesProps) => {
   const [query, setQuery] = useState("");
   const [filteredHeroes, setFilteredHeroes] = useState(heroes);
@@ -66,11 +72,11 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
       <div className="flex justify-center items-center flex-wrap gap-16 mx-20 mb-4">
         {filteredHeroes.map((hero) => (
           <HeroDashboard
-            key={hero.id + String(hero.indice)}
-            uniqueKey={hero.id + String(hero.indice)}
+            key={hero.id}
             id={hero.id}
             name={hero.name}
             image={hero.imageUrl}
+            rank={hero.rank}
             classHero={hero.classhero}
             indice={Number(hero.indice)}
             cs={hero.cs}

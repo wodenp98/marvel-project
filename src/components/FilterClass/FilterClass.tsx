@@ -14,7 +14,7 @@ export default function FilterClass({
 
   const toggleButton = () => {
     setPressedButton(!pressedButton);
-    onClick({ target: { value: title.toLowerCase() } }); // Appel de la fonction onClick avec le titre en paramètre
+    onClick({ target: { value: title } }); // Appel de la fonction onClick avec le titre en paramètre
   };
 
   return (

@@ -116,6 +116,28 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
     }
   };
 
+  const starsSix = Array.from({ length: 6 }, (_, index) => (
+    <div key={index}>
+      <Image
+        src="/assets/stars/starsnodup.png"
+        alt="Stars No Dup"
+        width={24}
+        height={24}
+      />
+    </div>
+  ));
+
+  const starsSeven = Array.from({ length: 7 }, (_, index) => (
+    <div key={index}>
+      <Image
+        src="/assets/stars/starsnodup.png"
+        alt="Stars No Dup"
+        width={24}
+        height={24}
+      />
+    </div>
+  ));
+
   const FilterClassWrapper = ({
     title,
     onClick,
@@ -182,27 +204,49 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
 
   return (
     <div>
-      <div>
-        <FilterClassWrapper
-          title="Skill"
-          onClick={(e) => handleClassClick(e.target.value)}
-          isSelected={selectedClass === "Skill"}
-        />
+      <div className="flex">
         <FilterClassWrapper
           title="Cosmic"
           onClick={(e) => handleClassClick(e.target.value)}
           isSelected={selectedClass === "Cosmic"}
         />
         <FilterClassWrapper
+          title="Skill"
+          onClick={(e) => handleClassClick(e.target.value)}
+          isSelected={selectedClass === "Skill"}
+        />
+        <FilterClassWrapper
+          title="Mystic"
+          onClick={(e) => handleClassClick(e.target.value)}
+          isSelected={selectedClass === "Mystic"}
+        />
+        <FilterClassWrapper
           title="Tech"
           onClick={(e) => handleClassClick(e.target.value)}
           isSelected={selectedClass === "Tech"}
         />
+        <FilterClassWrapper
+          title="Mutant"
+          onClick={(e) => handleClassClick(e.target.value)}
+          isSelected={selectedClass === "Mutant"}
+        />
+
+        <FilterClassWrapper
+          title="Science"
+          onClick={(e) => handleClassClick(e.target.value)}
+          isSelected={selectedClass === "Science"}
+        />
 
         {/* Add similar FilterClassWrapper components for other classes */}
+        <div className="flex flex-col gap-2">
+          <button onClick={() => handleStarsClick(6)}>
+            <div className="flex items-center">{starsSix}</div>
+          </button>
+          <button onClick={() => handleStarsClick(7)}>
+            <div className="flex items-center">{starsSeven}</div>
+          </button>
+        </div>
 
-        <button onClick={() => handleStarsClick(6)}>Filter by 6 Stars</button>
-        <button onClick={() => handleStarsClick(7)}>Filter by 7 Stars</button>
         {/* Add similar buttons for other star values */}
 
         <button onClick={resetFilters}>Reset Filters</button>

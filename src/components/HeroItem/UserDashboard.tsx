@@ -21,6 +21,7 @@ import HeroDashboard from "./HeroDashboard";
 import { Button } from "../ui/button";
 import { FilterClassWrapper } from "../FilterClass/FilterClass";
 import Image from "next/image";
+import { Input } from "../ui/input";
 
 export const UserDashboard = ({ heroes }: HeroesProps) => {
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
@@ -110,74 +111,76 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
 
   return (
     <div>
-      <div className="flex">
-        <FilterClassWrapper
-          title="Cosmic"
-          onClick={(e) => handleClassClick(e.target.value)}
-          isSelected={selectedClass === "Cosmic"}
-        />
-        <FilterClassWrapper
-          title="Skill"
-          onClick={(e) => handleClassClick(e.target.value)}
-          isSelected={selectedClass === "Skill"}
-        />
-        <FilterClassWrapper
-          title="Mystic"
-          onClick={(e) => handleClassClick(e.target.value)}
-          isSelected={selectedClass === "Mystic"}
-        />
-        <FilterClassWrapper
-          title="Tech"
-          onClick={(e) => handleClassClick(e.target.value)}
-          isSelected={selectedClass === "Tech"}
-        />
-        <FilterClassWrapper
-          title="Mutant"
-          onClick={(e) => handleClassClick(e.target.value)}
-          isSelected={selectedClass === "Mutant"}
-        />
+      <div className="flex justify-between items-center m-6">
+        <div>
+          <FilterClassWrapper
+            title="Cosmic"
+            onClick={(e) => handleClassClick(e.target.value)}
+            isSelected={selectedClass === "Cosmic"}
+          />
+          <FilterClassWrapper
+            title="Skill"
+            onClick={(e) => handleClassClick(e.target.value)}
+            isSelected={selectedClass === "Skill"}
+          />
+          <FilterClassWrapper
+            title="Mystic"
+            onClick={(e) => handleClassClick(e.target.value)}
+            isSelected={selectedClass === "Mystic"}
+          />
+          <FilterClassWrapper
+            title="Tech"
+            onClick={(e) => handleClassClick(e.target.value)}
+            isSelected={selectedClass === "Tech"}
+          />
+          <FilterClassWrapper
+            title="Mutant"
+            onClick={(e) => handleClassClick(e.target.value)}
+            isSelected={selectedClass === "Mutant"}
+          />
 
-        <FilterClassWrapper
-          title="Science"
-          onClick={(e) => handleClassClick(e.target.value)}
-          isSelected={selectedClass === "Science"}
-        />
+          <FilterClassWrapper
+            title="Science"
+            onClick={(e) => handleClassClick(e.target.value)}
+            isSelected={selectedClass === "Science"}
+          />
+        </div>
 
         <div className="flex flex-col gap-2">
-          <Button onClick={() => handleStarsClick(6)}>
+          <Button variant="outline" onClick={() => handleStarsClick(6)}>
             <div className="flex items-center">{starsSix}</div>
           </Button>
-          <Button onClick={() => handleStarsClick(7)}>
+          <Button variant="outline" onClick={() => handleStarsClick(7)}>
             <div className="flex items-center">{starsSeven}</div>
           </Button>
         </div>
 
-        <div>
-          <Button onClick={() => handleRankClick("1")}>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={() => handleRankClick("1")}>
             <div>1</div>
           </Button>
-          <Button onClick={() => handleRankClick("2")}>
+          <Button variant="outline" onClick={() => handleRankClick("2")}>
             <div>2</div>
           </Button>
-          <Button onClick={() => handleRankClick("3")}>
+          <Button variant="outline" onClick={() => handleRankClick("3")}>
             <div>3</div>
           </Button>
-          <Button onClick={() => handleRankClick("4")}>
+          <Button variant="outline" onClick={() => handleRankClick("4")}>
             <div>4</div>
           </Button>
-          <Button onClick={() => handleRankClick("5")}>
+          <Button variant="outline" onClick={() => handleRankClick("5")}>
             <div>5</div>
           </Button>
         </div>
 
-        <input
+        <Button onClick={resetFilters}>Reset Filters</Button>
+        <Input
           type="text"
           placeholder="Rechercher un héros..."
           value={searchQuery}
+          className="w-48"
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-
-        <button onClick={resetFilters}>Reset Filters</button>
       </div>
       <div className="flex justify-center items-center flex-wrap gap-16 mx-20 mb-4">
         {filteredHeroes.map((hero) => (

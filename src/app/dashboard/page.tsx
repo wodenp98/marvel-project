@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import FilterClass from "@/components/FilterClass/FilterClass";
 import HeroItem from "@/components/HeroItem/HeroItem";
 import { prisma } from "@/utils/prisma/prisma";
 import { Button } from "@/components/ui/button";
@@ -51,7 +50,7 @@ export default async function Dashboard() {
 
   if (userDatabase.length !== 0) {
     return (
-      <main className="h-screen">
+      <main>
         <UserDashboard heroes={userDatabase} />
       </main>
     );

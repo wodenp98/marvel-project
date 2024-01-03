@@ -29,51 +29,24 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
   const [selectedRank, setSelectedRank] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const handleClassClick = (className: string) => {
-    if (selectedClass === className) {
-      setSelectedClass(null);
-    } else {
-      setSelectedClass(className);
+  const handleFilterClick = (
+    filterValue: string | number,
+    filterType: string
+  ) => {
+    if (filterType === "class") {
+      setSelectedClass((prevClass) =>
+        prevClass === filterValue ? null : (filterValue as string | null)
+      );
+    } else if (filterType === "stars") {
+      setSelectedStars((prevStars) =>
+        prevStars === filterValue ? null : (filterValue as number | null)
+      );
+    } else if (filterType === "rank") {
+      setSelectedRank((prevRank) =>
+        prevRank === filterValue ? null : (filterValue as string | null)
+      );
     }
   };
-
-  const handleStarsClick = (stars: number) => {
-    if (selectedStars === stars) {
-      setSelectedStars(null);
-    } else {
-      setSelectedStars(stars);
-    }
-  };
-
-  const handleRankClick = (rank: string) => {
-    if (selectedRank === rank) {
-      setSelectedRank(null);
-    } else {
-      setSelectedRank(rank);
-    }
-  };
-
-  const starsSix = Array.from({ length: 6 }, (_, index) => (
-    <div key={index}>
-      <Image
-        src="/assets/stars/starsnodup.png"
-        alt="Stars No Dup"
-        width={24}
-        height={24}
-      />
-    </div>
-  ));
-
-  const starsSeven = Array.from({ length: 7 }, (_, index) => (
-    <div key={index}>
-      <Image
-        src="/assets/stars/starsnodup.png"
-        alt="Stars No Dup"
-        width={24}
-        height={24}
-      />
-    </div>
-  ));
 
   const resetFilters = () => {
     setSelectedClass(null);
@@ -82,95 +55,71 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
     setSearchQuery("");
   };
 
-  const filteredHeroes = heroes
-    .filter((hero) => {
-      if (selectedClass !== null) {
-        return hero.classhero === selectedClass;
-      }
-      return true;
-    })
-    .filter((hero) => {
-      if (selectedStars !== null) {
-        return hero.stars === selectedStars.toString();
-      }
-      return true;
-    })
-    .filter((hero) => {
-      if (selectedRank !== null) {
-        return hero.rank === selectedRank.toString();
-      }
-      return true;
-    })
-    .filter((hero) => {
-      // Filtre par recherche
-      if (searchQuery !== "") {
-        return hero.name.toLowerCase().includes(searchQuery.toLowerCase());
-      }
-      return true;
-    });
+  const filteredHeroes = heroes.filter((hero) => {
+    const isClassFiltered =
+      selectedClass !== null ? hero.classhero === selectedClass : true;
+    const isStarsFiltered =
+      selectedStars !== null ? hero.stars === selectedStars.toString() : true;
+    const isRankFiltered =
+      selectedRank !== null ? hero.rank === selectedRank.toString() : true;
+    const isSearchFiltered =
+      searchQuery !== ""
+        ? hero.name.toLowerCase().includes(searchQuery.toLowerCase())
+        : true;
+
+    return (
+      isClassFiltered && isStarsFiltered && isRankFiltered && isSearchFiltered
+    );
+  });
 
   return (
     <div>
       <div className="flex justify-between items-center m-6">
         <div>
-          <FilterClassWrapper
-            title="Cosmic"
-            onClick={(e) => handleClassClick(e.target.value)}
-            isSelected={selectedClass === "Cosmic"}
-          />
-          <FilterClassWrapper
-            title="Skill"
-            onClick={(e) => handleClassClick(e.target.value)}
-            isSelected={selectedClass === "Skill"}
-          />
-          <FilterClassWrapper
-            title="Mystic"
-            onClick={(e) => handleClassClick(e.target.value)}
-            isSelected={selectedClass === "Mystic"}
-          />
-          <FilterClassWrapper
-            title="Tech"
-            onClick={(e) => handleClassClick(e.target.value)}
-            isSelected={selectedClass === "Tech"}
-          />
-          <FilterClassWrapper
-            title="Mutant"
-            onClick={(e) => handleClassClick(e.target.value)}
-            isSelected={selectedClass === "Mutant"}
-          />
-
-          <FilterClassWrapper
-            title="Science"
-            onClick={(e) => handleClassClick(e.target.value)}
-            isSelected={selectedClass === "Science"}
-          />
+          {["Cosmic", "Skill", "Mystic", "Tech", "Mutant", "Science"].map(
+            (className) => (
+              <FilterClassWrapper
+                key={className}
+                title={className}
+                onClick={(e) => handleFilterClick(className, "class")}
+                isSelected={selectedClass === className}
+              />
+            )
+          )}
         </div>
 
         <div className="flex flex-col gap-2">
-          <Button variant="outline" onClick={() => handleStarsClick(6)}>
-            <div className="flex items-center">{starsSix}</div>
-          </Button>
-          <Button variant="outline" onClick={() => handleStarsClick(7)}>
-            <div className="flex items-center">{starsSeven}</div>
-          </Button>
+          {[6, 7].map((stars) => (
+            <Button
+              variant="outline"
+              key={stars}
+              onClick={() => handleFilterClick(stars, "stars")}
+            >
+              <div className="flex items-center">
+                {Array.from({ length: stars }, (_, index) => (
+                  <Image
+                    key={index}
+                    src="/assets/stars/starsnodup.png"
+                    alt="Stars No Dup"
+                    width={24}
+                    height={24}
+                  />
+                ))}
+              </div>
+            </Button>
+          ))}
         </div>
 
         <div className="flex gap-2">
-          <Button variant="outline" onClick={() => handleRankClick("1")}>
-            <div>1</div>
-          </Button>
-          <Button variant="outline" onClick={() => handleRankClick("2")}>
-            <div>2</div>
-          </Button>
-          <Button variant="outline" onClick={() => handleRankClick("3")}>
-            <div>3</div>
-          </Button>
-          <Button variant="outline" onClick={() => handleRankClick("4")}>
-            <div>4</div>
-          </Button>
-          <Button variant="outline" onClick={() => handleRankClick("5")}>
-            <div>5</div>
-          </Button>
+          {[1, 2, 3, 4, 5].map((rank) => (
+            <Button
+              variant="outline"
+              key={rank}
+              onClick={() => handleFilterClick(rank, "rank")}
+            >
+              <div>{rank}</div>
+            </Button>
+          ))}
         </div>
 
         <Button onClick={resetFilters}>Reset Filters</Button>
@@ -196,6 +145,10 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
             stars={Number(hero.stars)}
           />
         ))}
+      </div>
+
+      <div className="flex justify-center m-8">
+        <Button>Add new heroes</Button>
       </div>
     </div>
   );

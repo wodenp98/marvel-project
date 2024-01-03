@@ -1,9 +1,4 @@
 "use client";
-// import React, { useState } from "react";
-// import HeroDashboard from "./HeroDashboard";
-// import FilterClass from "../FilterClass/FilterClass";
-// import { Button } from "../ui/button";
-// import { Input } from "../ui/input";
 
 type HeroesProps = {
   heroes: {
@@ -19,86 +14,19 @@ type HeroesProps = {
 };
 
 // /* TODO
-// BOUTON DE TRI A REFAIRE + RESET
-// TRI RANK ET STARS
 // MODIFICATION DE HEROS
 // */
-
-// export const UserDashboard = ({ heroes }: HeroesProps) => {
-//   // const [query, setQuery] = useState("");
-//   // const [filteredHeroes, setFilteredHeroes] = useState(heroes);
-//   // console.log("heroes", heroes);
-
-//   // const handleSearch = (event: any) => {
-//   //   const searchQuery = event.target.value.toLowerCase();
-//   //   const filtered = heroes.filter((hero) =>
-//   //     hero.name.toLowerCase().includes(searchQuery)
-//   //   );
-//   //   setQuery(searchQuery);
-//   //   setFilteredHeroes(filtered);
-//   // };
-
-//   // const handleFilter = async (event: any) => {
-//   //   const classQuery = event.target.value.toLowerCase();
-//   //   const filtered = heroes.filter((hero) =>
-//   //     hero.classhero.toLowerCase().includes(classQuery)
-//   //   );
-//   //   setFilteredHeroes(filtered);
-//   };
-//   return (
-//     <>
-//       <div className="flex justify-between m-8">
-//         <div className="flex">
-//           <FilterClass title="cosmic" onClick={handleFilter} />
-//           <FilterClass title="skill" onClick={handleFilter} />
-//           <FilterClass title="mystic" onClick={handleFilter} />
-//           <FilterClass title="tech" onClick={handleFilter} />
-//           <FilterClass title="mutant" onClick={handleFilter} />
-//           <FilterClass title="science" onClick={handleFilter} />
-//           <Button className="ml-8" onClick={() => setFilteredHeroes(heroes)}>
-//             Reset
-//           </Button>
-//         </div>
-//         <form onSubmit={handleSearch}>
-//           <Input
-//             className="w-full"
-//             type="text"
-//             placeholder="Search hero"
-//             value={query}
-//             onChange={handleSearch}
-//           />
-//           <button type="submit"></button>
-//         </form>
-//       </div>
-//       <div className="flex justify-center items-center flex-wrap gap-16 mx-20 mb-4">
-//         {filteredHeroes.map((hero) => (
-//           <HeroDashboard
-//             key={hero.id}
-//             id={hero.id}
-//             name={hero.name}
-//             image={hero.imageUrl}
-//             rank={hero.rank}
-//             classHero={hero.classhero}
-//             indice={Number(hero.indice)}
-//             cs={hero.cs}
-//             stars={Number(hero.stars)}
-//           />
-//         ))}
-//       </div>
-//     </>
-//   );
-// };
-
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import HeroDashboard from "./HeroDashboard";
 import { Button } from "../ui/button";
-import FilterClass from "../FilterClass/FilterClass";
-import { Toggle } from "@/components/ui/toggle";
+import { FilterClassWrapper } from "../FilterClass/FilterClass";
 import Image from "next/image";
 
 export const UserDashboard = ({ heroes }: HeroesProps) => {
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
   const [selectedStars, setSelectedStars] = useState<number | null>(null);
+  const [selectedRank, setSelectedRank] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const handleClassClick = (className: string) => {
     if (selectedClass === className) {
@@ -113,6 +41,14 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
       setSelectedStars(null);
     } else {
       setSelectedStars(stars);
+    }
+  };
+
+  const handleRankClick = (rank: string) => {
+    if (selectedRank === rank) {
+      setSelectedRank(null);
+    } else {
+      setSelectedRank(rank);
     }
   };
 
@@ -138,54 +74,11 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
     </div>
   ));
 
-  const FilterClassWrapper = ({
-    title,
-    onClick,
-    isSelected,
-  }: {
-    title: string;
-    onClick: (event: any) => void;
-    isSelected: boolean;
-  }) => {
-    const [pressedButton, setPressedButton] = useState(isSelected);
-
-    useEffect(() => {
-      setPressedButton(isSelected);
-    }, [isSelected]);
-
-    const toggleButton = () => {
-      setPressedButton(!pressedButton);
-      onClick({ target: { value: title } });
-    };
-
-    return (
-      <Toggle
-        aria-label="Toggle"
-        pressed={pressedButton}
-        onPressedChange={toggleButton}
-      >
-        {pressedButton ? (
-          <Image
-            src={`/assets/${title}-colored.svg`}
-            alt={title}
-            width={30}
-            height={30}
-          />
-        ) : (
-          <Image
-            src={`/assets/${title}.svg`}
-            alt={title}
-            width={30}
-            height={30}
-          />
-        )}
-      </Toggle>
-    );
-  };
-
   const resetFilters = () => {
     setSelectedClass(null);
     setSelectedStars(null);
+    setSelectedRank(null);
+    setSearchQuery("");
   };
 
   const filteredHeroes = heroes
@@ -198,6 +91,19 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
     .filter((hero) => {
       if (selectedStars !== null) {
         return hero.stars === selectedStars.toString();
+      }
+      return true;
+    })
+    .filter((hero) => {
+      if (selectedRank !== null) {
+        return hero.rank === selectedRank.toString();
+      }
+      return true;
+    })
+    .filter((hero) => {
+      // Filtre par recherche
+      if (searchQuery !== "") {
+        return hero.name.toLowerCase().includes(searchQuery.toLowerCase());
       }
       return true;
     });
@@ -237,17 +143,39 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
           isSelected={selectedClass === "Science"}
         />
 
-        {/* Add similar FilterClassWrapper components for other classes */}
         <div className="flex flex-col gap-2">
-          <button onClick={() => handleStarsClick(6)}>
+          <Button onClick={() => handleStarsClick(6)}>
             <div className="flex items-center">{starsSix}</div>
-          </button>
-          <button onClick={() => handleStarsClick(7)}>
+          </Button>
+          <Button onClick={() => handleStarsClick(7)}>
             <div className="flex items-center">{starsSeven}</div>
-          </button>
+          </Button>
         </div>
 
-        {/* Add similar buttons for other star values */}
+        <div>
+          <Button onClick={() => handleRankClick("1")}>
+            <div>1</div>
+          </Button>
+          <Button onClick={() => handleRankClick("2")}>
+            <div>2</div>
+          </Button>
+          <Button onClick={() => handleRankClick("3")}>
+            <div>3</div>
+          </Button>
+          <Button onClick={() => handleRankClick("4")}>
+            <div>4</div>
+          </Button>
+          <Button onClick={() => handleRankClick("5")}>
+            <div>5</div>
+          </Button>
+        </div>
+
+        <input
+          type="text"
+          placeholder="Rechercher un héros..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
 
         <button onClick={resetFilters}>Reset Filters</button>
       </div>

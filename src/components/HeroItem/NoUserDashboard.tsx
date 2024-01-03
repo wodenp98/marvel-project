@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import React, { useState } from "react";
-import FilterClass from "../FilterClass/FilterClass";
+import { FilterClassWrapper } from "../FilterClass/FilterClass";
 import { Button } from "../ui/button";
 import HeroItem from "./HeroItem";
 import { Input } from "../ui/input";
@@ -20,6 +20,7 @@ type HeroesProps = {
 // https://github.com/HamedBahram/next-pagination/blob/search/app/movies/page.tsx
 
 export const NoUserDashboard = ({ heroes }: HeroesProps) => {
+  const [selectedClass, setSelectedClass] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [filteredHeroes, setFilteredHeroes] = useState(heroes);
 
@@ -43,12 +44,36 @@ export const NoUserDashboard = ({ heroes }: HeroesProps) => {
     <>
       <div className="flex justify-between m-8">
         <div>
-          <FilterClass title="cosmic" onClick={handleFilter} />
-          <FilterClass title="skill" onClick={handleFilter} />
-          <FilterClass title="mystic" onClick={handleFilter} />
-          <FilterClass title="tech" onClick={handleFilter} />
-          <FilterClass title="mutant" onClick={handleFilter} />
-          <FilterClass title="science" onClick={handleFilter} />
+          <FilterClassWrapper
+            title="cosmic"
+            onClick={handleFilter}
+            isSelected={selectedClass === "Cosmic"}
+          />
+          <FilterClassWrapper
+            title="skill"
+            onClick={handleFilter}
+            isSelected={selectedClass === "Skill"}
+          />
+          <FilterClassWrapper
+            title="mystic"
+            onClick={handleFilter}
+            isSelected={selectedClass === "Mystic"}
+          />
+          <FilterClassWrapper
+            title="tech"
+            onClick={handleFilter}
+            isSelected={selectedClass === "Tech"}
+          />
+          <FilterClassWrapper
+            title="mutant"
+            onClick={handleFilter}
+            isSelected={selectedClass === "Mutant"}
+          />
+          <FilterClassWrapper
+            title="science"
+            onClick={handleFilter}
+            isSelected={selectedClass === "Science"}
+          />
           <Button onClick={() => setFilteredHeroes(heroes)}>Reset</Button>
         </div>
         <form onSubmit={handleSearch}>

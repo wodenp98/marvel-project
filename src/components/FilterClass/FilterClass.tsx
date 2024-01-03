@@ -1,20 +1,26 @@
 "use client";
 import { Toggle } from "@/components/ui/toggle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function FilterClass({
+export const FilterClassWrapper = ({
   title,
   onClick,
+  isSelected,
 }: {
   title: string;
   onClick: (event: any) => void;
-}) {
-  const [pressedButton, setPressedButton] = useState(false);
+  isSelected: boolean;
+}) => {
+  const [pressedButton, setPressedButton] = useState(isSelected);
+
+  useEffect(() => {
+    setPressedButton(isSelected);
+  }, [isSelected]);
 
   const toggleButton = () => {
     setPressedButton(!pressedButton);
-    onClick({ target: { value: title } }); // Appel de la fonction onClick avec le titre en paramètre
+    onClick({ target: { value: title } });
   };
 
   return (
@@ -40,4 +46,4 @@ export default function FilterClass({
       )}
     </Toggle>
   );
-}
+};

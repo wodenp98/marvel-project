@@ -22,6 +22,7 @@ import { Button } from "../ui/button";
 import { FilterClassWrapper } from "../FilterClass/FilterClass";
 import Image from "next/image";
 import { Input } from "../ui/input";
+import Link from "next/link";
 
 export const UserDashboard = ({ heroes }: HeroesProps) => {
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
@@ -148,7 +149,9 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
       </div>
 
       <div className="flex justify-center m-8">
-        <Button>Add new heroes</Button>
+        <Link href="/addHeroes">
+          <Button>Add new heroes</Button>
+        </Link>
       </div>
     </div>
   );

@@ -138,10 +138,10 @@ export const UserDashboard = ({ heroes }: HeroesProps) => {
             id={hero.id}
             name={hero.name}
             image={hero.imageUrl}
-            rank={hero.rank}
+            rankHero={hero.rank}
             classHero={hero.classhero}
-            indice={Number(hero.indice)}
-            cs={hero.cs}
+            indiceHero={Number(hero.indice)}
+            csHero={hero.cs}
             stars={Number(hero.stars)}
           />
         ))}

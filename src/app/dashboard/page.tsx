@@ -27,7 +27,11 @@ async function getUserDatabase(userId: string) {
       userId: userId,
     },
     include: {
-      userDashboard: true,
+      userDashboard: {
+        orderBy: {
+          indice: "desc",
+        },
+      },
     },
   });
 

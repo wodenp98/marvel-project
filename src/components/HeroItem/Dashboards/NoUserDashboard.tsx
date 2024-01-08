@@ -2,10 +2,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import React, { useState } from "react";
-import { FilterClassWrapper } from "../FilterClass/FilterClass";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import HeroAdded from "./HeroAdded";
+import { FilterClassWrapper } from "../../FilterClass/FilterClass";
+import { Button } from "../../ui/button";
+import HeroItem from "../HeroCards/HeroItem";
+import { Input } from "../../ui/input";
 
 type HeroesProps = {
   heroes: {
@@ -17,7 +17,9 @@ type HeroesProps = {
   }[];
 };
 
-export const AddHeroesDashboard = ({ heroes }: HeroesProps) => {
+// https://github.com/HamedBahram/next-pagination/blob/search/app/movies/page.tsx
+
+export const NoUserDashboard = ({ heroes }: HeroesProps) => {
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [filteredHeroes, setFilteredHeroes] = useState(heroes);
@@ -99,7 +101,7 @@ export const AddHeroesDashboard = ({ heroes }: HeroesProps) => {
         </span>
         <div className="flex justify-center items-center flex-wrap gap-6 mb-4">
           {filteredHeroes.map((hero) => (
-            <HeroAdded
+            <HeroItem
               key={hero.id}
               id={hero.id}
               name={hero.name}

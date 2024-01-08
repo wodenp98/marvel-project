@@ -1,9 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import Image from "next/image";
-import { DialogHeader } from "../ui/dialog";
-import { useMemo, useState } from "react";
-import { getHeroImage, getHeroBackground } from "@/utils/helpers";
 import useStore from "@/lib/store/tableHeroes";
 import {
   Dialog,
@@ -13,8 +9,11 @@ import {
   DialogDescription,
   DialogClose,
 } from "@/components/ui/dialog";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import Image from "next/image";
+import { Button } from "../../ui/button";
+import { DialogHeader, DialogFooter } from "../../ui/dialog";
+import { Input } from "../../ui/input";
+import { useMemo, useState } from "react";
 import {
   Select,
   SelectTrigger,
@@ -35,80 +34,115 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/components/ui/use-toast";
-import { ScrollArea } from "../ui/scroll-area";
-import { prisma } from "../../../prisma/clients";
-import { useSession } from "next-auth/react";
+import { ScrollArea } from "../../ui/scroll-area";
+import { getHeroImage, getHeroBackground } from "@/utils/helpers";
 
 type HeroItemProps = {
   name: string;
   image: string;
   classHero: string;
   stars: number;
-  indiceHero: number;
-  csHero: number;
   id: string;
-  rankHero: string;
 };
 
 const heroSchema = z.object({
-  indice: z.coerce
+  classhero: z.string().nonempty("Field is required").min(2, {
+    message: "Classhero must be at least 2 characters.",
+  }),
+  name: z.string().nonempty("Field is required").min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  imageUrl: z.string().nonempty("Field is required").url({
+    message: "Please enter a valid URL for the image.",
+  }),
+  indice: z
     .number()
-    .min(0, { message: "Indice must be at least 0." })
+    .int()
+    .min(1000, {
+      message: "Indice must be at least 1000.",
+    })
     .max(60000, {
       message: "Indice must not be greater than 60000.",
     }),
-  rank: z.string({ required_error: "Field is required" }),
-  cs: z.coerce.number().min(0, { message: "CS must be at least 0." }).max(200, {
-    message: "CS must not be greater than 200.",
-  }),
+  stars: z.enum(["5", "6", "7"]).refine(
+    (value) => {
+      if (!["5", "6", "7"].includes(value)) {
+        throw new Error("Invalid value for stars.");
+      }
+      return true;
+    },
+    {
+      message: "Stars must be one of '5', '6', or '7'.",
+    }
+  ),
+  rank: z.enum(["1", "2", "3", "4", "5"]).refine(
+    (value) => {
+      if (!["1", "2", "3", "4", "5"].includes(value)) {
+        throw new Error("Invalid value for rank.");
+      }
+      return true;
+    },
+    {
+      message: "Rank must be one of '1', '2', '3', '4', or '5'.",
+    }
+  ),
+  cs: z
+    .number()
+    .int()
+    .min(0, {
+      message: "CS must be at least 0.",
+    })
+    .max(200, {
+      message: "CS must not be greater than 200.",
+    }),
   id: z.string(),
 });
 
 type ProfileFormValues = z.infer<typeof heroSchema>;
 
-export default function HeroDashboard({
+export default function HeroItem({
   name,
   image,
   classHero,
   stars,
-  indiceHero,
-  rankHero,
-  csHero,
   id,
 }: HeroItemProps) {
-  const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const getHero = useStore((state) => state.items);
+  const addHero = useStore((state) => state.addItem);
   const { toast } = useToast();
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(heroSchema),
     defaultValues: {
-      indice: 0 || indiceHero,
-      cs: 0 || csHero,
-      rank: "" || rankHero,
+      indice: 0,
+      name: name,
+      imageUrl: image,
+      classhero: classHero,
       id: id,
+      cs: 0,
     },
     mode: "onChange",
   });
 
-  const onSubmit = async (data: ProfileFormValues) => {
-    if (!session) {
-      return;
-    }
-
-    const res = await fetch("/api/updateHeroes", {
-      method: "POST",
-      body: JSON.stringify({
-        heros: { cs: data.cs, indice: data.indice, rank: data.rank, id: id },
-        userId: session.user.id,
-      }),
-    });
-
-    if (res.ok) {
+  const onSubmit = (data: ProfileFormValues) => {
+    console.log("data", data);
+    if (
+      getHero.some(
+        (hero) => hero.name === data.name && hero.stars === data.stars
+      )
+    ) {
       toast({
-        title: "Hero updated",
-        description: "Hero updated successfully",
+        title: "Hero already added",
+        description: "Hero already added to your dashboard",
       });
+    } else {
+      addHero(data);
+      toast({
+        title: "Hero added",
+        description: "Hero added to your dashboard",
+      });
+
+      setIsOpen(false);
     }
   };
 
@@ -118,26 +152,6 @@ export default function HeroDashboard({
     () => getHeroBackground(classHero),
     [classHero]
   );
-
-  const starsDisplay = Array.from({ length: stars }, (_, index) => (
-    <div key={index}>
-      {csHero === 0 ? (
-        <Image
-          src="/assets/stars/starsnodup.png"
-          alt="Stars No Dup"
-          width={24}
-          height={24}
-        />
-      ) : (
-        <Image
-          src="/assets/stars/starsdup.png"
-          alt="Stars Dup"
-          width={24}
-          height={24}
-        />
-      )}
-    </div>
-  ));
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -156,27 +170,20 @@ export default function HeroDashboard({
             }}
             width="200"
           />
-          <div className="absolute top-0 left-0 m-2">
-            <p className="text-white font-bold">{csHero}</p>
-          </div>
           <div className="absolute top-0 right-0 m-2">
             <div className="bg-white px-1 py-1 rounded-full flex items-center">
-              <p className="text-black text-xl font-bold">R{rankHero}</p>
+              <Image src={heroImage} alt={name} width={30} height={30} />
             </div>
           </div>
 
-          <div className="flex justify-center items-center px-2 mt-6">
-            <div className="flex items-center">{starsDisplay}</div>
-          </div>
           <div className="text-center mt-2">
             <h3 className="text-white text-lg font-bold">
               {name.replace(/\([^)]*\)/g, "")}
             </h3>
-            <p className="text-white font-bold">{indiceHero}</p>
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] h-[70vh]">
+      <DialogContent className="sm:max-w-[425px] h-[90vh]">
         <DialogHeader>
           <DialogTitle className="flex items-center justify-center space-x-4">
             <p>{name}</p>
@@ -184,13 +191,7 @@ export default function HeroDashboard({
           </DialogTitle>
         </DialogHeader>
         <div className="flex justify-center">
-          <Image
-            src={image}
-            alt={name}
-            width={140}
-            height={140}
-            className="object-cover"
-          />
+          <Image src={image} alt={name} width={120} height={120} />
         </div>
 
         {/* form avec toutes les données, plus les données non modifiable comme nom et classes si le hero est max 5 peut pas sélectionner 6 */}
@@ -204,15 +205,70 @@ export default function HeroDashboard({
                   <FormLabel>Indice</FormLabel>
                   <FormControl>
                     <Input
-                      type="number"
-                      placeholder={String(indiceHero)}
+                      type="text"
+                      placeholder="Nombre entre 1000 et 60000"
                       {...field}
+                      onChange={(e) => {
+                        field.onChange(Number(e.target.value));
+                      }}
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
+            {stars === 7 ? (
+              <FormField
+                control={form.control}
+                name="stars"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Etoiles</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="-- Choisissez une option --" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="5">5</SelectItem>
+                        <SelectItem value="6">6</SelectItem>
+                        <SelectItem value="7">7</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            ) : (
+              <FormField
+                control={form.control}
+                name="stars"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Etoiles</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="-- Choisissez une option --" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="5">5</SelectItem>
+                        <SelectItem value="6">6</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
 
             <FormField
               control={form.control}
@@ -226,7 +282,7 @@ export default function HeroDashboard({
                   >
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder={rankHero} />
+                        <SelectValue placeholder="-- Choisissez un rank --" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
@@ -250,9 +306,12 @@ export default function HeroDashboard({
                   <FormLabel>C.Spéciale</FormLabel>
                   <FormControl>
                     <Input
-                      type="number"
-                      placeholder={String(csHero)}
+                      type="text"
+                      placeholder="Nombre entre 0 et 200"
                       {...field}
+                      onChange={(e) => {
+                        field.onChange(Number(e.target.value));
+                      }}
                     />
                   </FormControl>
                   <FormMessage />

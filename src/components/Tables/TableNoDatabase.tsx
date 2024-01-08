@@ -118,9 +118,6 @@ export const TableNoDatabase = () => {
   const [rowSelection, setRowSelection] = useState({});
   const [isClient, setIsClient] = useState(false);
 
-  // if database = new table et pas table et new store?
-  // meme procéder que pour le dashboard
-
   useEffect(() => {
     setIsClient(true);
   }, []);

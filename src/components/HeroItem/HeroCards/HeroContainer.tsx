@@ -12,7 +12,6 @@ type HeroesProps = {
 };
 
 export const HeroContainer = ({ heroes }: HeroesProps) => {
-  // console.log("heroes", heroes);
   return (
     <>
       {heroes.map((hero) => (

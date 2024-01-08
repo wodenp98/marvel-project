@@ -3,8 +3,8 @@
 import { prisma } from "@/utils/prisma/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { NoUserDashboard } from "@/components/HeroItem/NoUserDashboard";
-import { AddHeroesDashboard } from "@/components/HeroItem/AddHeroesDashboard";
+import { NoUserDashboard } from "@/components/HeroItem/Dashboards/NoUserDashboard";
+import { AddHeroesDashboard } from "@/components/HeroItem/Dashboards/AddHeroesDashboard";
 
 async function getHeroes() {
   const data = await prisma.heroes.findMany({

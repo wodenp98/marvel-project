@@ -18,8 +18,6 @@ async function getUserDatabase(userId: string) {
 }
 
 export default async function Page() {
-  // if database = new table et pas table et new store?
-  // meme procéder que pour le dashboard
   const session = await getServerSession(authOptions);
 
   if (!session) {

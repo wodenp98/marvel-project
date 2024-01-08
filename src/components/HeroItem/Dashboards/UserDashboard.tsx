@@ -17,11 +17,11 @@ type HeroesProps = {
 // MODIFICATION DE HEROS
 // */
 import React, { useState } from "react";
-import HeroDashboard from "./HeroDashboard";
-import { Button } from "../ui/button";
-import { FilterClassWrapper } from "../FilterClass/FilterClass";
+import HeroDashboard from "../HeroCards/HeroDashboard";
+import { Button } from "../../ui/button";
+import { FilterClassWrapper } from "../../FilterClass/FilterClass";
 import Image from "next/image";
-import { Input } from "../ui/input";
+import { Input } from "../../ui/input";
 import Link from "next/link";
 
 export const UserDashboard = ({ heroes }: HeroesProps) => {

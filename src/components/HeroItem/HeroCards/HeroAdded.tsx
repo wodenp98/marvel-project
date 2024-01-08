@@ -9,9 +9,9 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import Image from "next/image";
-import { Button } from "../ui/button";
-import { DialogHeader, DialogFooter } from "../ui/dialog";
-import { Input } from "../ui/input";
+import { Button } from "../../ui/button";
+import { DialogHeader, DialogFooter } from "../../ui/dialog";
+import { Input } from "../../ui/input";
 import { useMemo, useState } from "react";
 import {
   Select,
@@ -33,7 +33,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useToast } from "@/components/ui/use-toast";
-import { ScrollArea } from "../ui/scroll-area";
+import { ScrollArea } from "../../ui/scroll-area";
 import { getHeroImage, getHeroBackground } from "@/utils/helpers";
 import useAddHeroesStore from "@/lib/store/addHeroes";
 

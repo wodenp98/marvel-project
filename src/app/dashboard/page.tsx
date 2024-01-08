@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import HeroItem from "@/components/HeroItem/HeroItem";
+import HeroItem from "@/components/HeroItem/HeroCards/HeroItem";
 import { prisma } from "@/utils/prisma/prisma";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -7,9 +7,9 @@ import { Session, getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
-import { HeroContainer } from "@/components/HeroItem/HeroContainer";
-import { NoUserDashboard } from "@/components/HeroItem/NoUserDashboard";
-import { UserDashboard } from "@/components/HeroItem/UserDashboard";
+import { HeroContainer } from "@/components/HeroItem/HeroCards/HeroContainer";
+import { NoUserDashboard } from "@/components/HeroItem/Dashboards/NoUserDashboard";
+import { UserDashboard } from "@/components/HeroItem/Dashboards/UserDashboard";
 
 async function getHeroes() {
   const data = await prisma.heroes.findMany({

@@ -4,6 +4,7 @@ import { prisma } from "@/utils/prisma/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { NoUserDashboard } from "@/components/HeroItem/NoUserDashboard";
+import { AddHeroesDashboard } from "@/components/HeroItem/AddHeroesDashboard";
 
 async function getHeroes() {
   const data = await prisma.heroes.findMany({
@@ -27,12 +28,13 @@ export default async function Dashboard() {
     return <div>no data</div>;
   }
 
-  // update the database with the new heros
-  // Not the same table and not the same dashboard
+  // update the database with the new heros*
+  //if heros already exist in name, rank, stars toast
+  // Not the same table
 
   return (
     <main>
-      <NoUserDashboard heroes={heroes} />
+      <AddHeroesDashboard heroes={heroes} />
     </main>
   );
 }

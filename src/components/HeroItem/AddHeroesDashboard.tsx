@@ -4,8 +4,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FilterClassWrapper } from "../FilterClass/FilterClass";
 import { Button } from "../ui/button";
-import HeroItem from "./HeroItem";
 import { Input } from "../ui/input";
+import HeroAdded from "./HeroAdded";
 
 type HeroesProps = {
   heroes: {
@@ -16,8 +16,6 @@ type HeroesProps = {
     id: string;
   }[];
 };
-
-// https://github.com/HamedBahram/next-pagination/blob/search/app/movies/page.tsx
 
 export const AddHeroesDashboard = ({ heroes }: HeroesProps) => {
   const [selectedClass, setSelectedClass] = useState<string | null>(null);
@@ -101,7 +99,7 @@ export const AddHeroesDashboard = ({ heroes }: HeroesProps) => {
         </span>
         <div className="flex justify-center items-center flex-wrap gap-6 mb-4">
           {filteredHeroes.map((hero) => (
-            <HeroItem
+            <HeroAdded
               key={hero.id}
               id={hero.id}
               name={hero.name}

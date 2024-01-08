@@ -39,6 +39,7 @@ import Link from "next/link";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { prisma } from "@/utils/prisma/prisma";
 import { useSession } from "next-auth/react";
+import useAddHeroesStore from "@/lib/store/addHeroes";
 
 type HeroItem = {
   classhero: string;
@@ -109,17 +110,14 @@ const columns: ColumnDef<HeroItem>[] = [
 ];
 export const TableAddNewHeroes = () => {
   const { data: session } = useSession();
-  const data = useStore((state) => state.items);
-  const removeItem = useStore((state) => state.removeItem);
-  const reset = useStore((state) => state.reset);
+  const data = useAddHeroesStore((state) => state.items);
+  const removeItem = useAddHeroesStore((state) => state.removeItem);
+  const reset = useAddHeroesStore((state) => state.reset);
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({});
   const [isClient, setIsClient] = useState(false);
-
-  // if database = new table et pas table et new store?
-  // meme procéder que pour le dashboard
 
   useEffect(() => {
     setIsClient(true);
@@ -155,8 +153,7 @@ export const TableAddNewHeroes = () => {
     if (!session) {
       return null;
     }
-
-    const res = await fetch("/api/dashboardUser", {
+    const res = await fetch("/api/updateDashboard", {
       method: "POST",
       body: JSON.stringify({
         heros: data,
@@ -173,8 +170,11 @@ export const TableAddNewHeroes = () => {
     <>
       {isClient ? (
         <div>
+          <Link href="/addHeroes">
+            <Button>Add Heroes</Button>
+          </Link>
           <Link href="/dashboard">
-            <Button>Dashboard</Button>
+            <Button>Your Dashboard</Button>
           </Link>
           <div className="w-10/12 mx-auto">
             <div className="flex items-center py-4">
@@ -291,7 +291,7 @@ export const TableAddNewHeroes = () => {
             </div>
           </div>
           <Button onClick={deleteRow}>Delete row</Button>
-          <Button onClick={addToDashboard}>Create your dashboard</Button>
+          <Button onClick={addToDashboard}>Add to your dashboard</Button>
         </div>
       ) : null}
     </>

@@ -28,10 +28,6 @@ export default async function Dashboard() {
     return <div>no data</div>;
   }
 
-  // update the database with the new heros*
-  //if heros already exist in name, rank, stars toast
-  // Not the same table
-
   return (
     <main>
       <AddHeroesDashboard heroes={heroes} />
